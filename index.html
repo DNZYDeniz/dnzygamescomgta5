@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>DNZY Ailesi — Haftalık Ödüller</title>
+    <meta name="description" content="Grand Roleplay DNZY Ailesi haftalık GC ve para kazananlar, kurallar ve kampanyalar." />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root{
+            --bg:#0b0f17;
+            --text:#e5e7eb;
+            --muted:#9ca3af;
+            --line:rgba(255,255,255,.10);
+            --accent:#22c55e;
+            --accent2:#60a5fa;
+            --warn:#f59e0b;
+            --danger:#ef4444;
+            --shadow: 0 10px 30px rgba(0,0,0,.35);
+            --radius:18px;
+            --radius2:14px;
+            --max:1100px;
+        }
+        *{box-sizing:border-box}
+
+        html, body{
+            width:100%;
+            height:100%;
+            overflow-x:hidden;
+            overflow-y:auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        body{
+            margin:0;
+            font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+            background:
+                radial-gradient(1200px 700px at 20% -10%, rgba(34,197,94,.22), transparent 60%),
+                radial-gradient(900px 500px at 90% 0%, rgba(96,165,250,.20), transparent 55%),
+                radial-gradient(900px 700px at 50% 120%, rgba(245,158,11,.12), transparent 55%),
+                var(--bg);
+            color:var(--text);
+            position:relative;
+            overflow-x:hidden;
+        }
+
+        body::before{
+            content:"";
+            position:fixed;
+            inset:0;
+            background-image: var(--bgImg);
+            background-size: cover;
+            background-position: center;
+            background-repeat:no-repeat;
+            opacity: .50;
+            z-index:-2;
+            pointer-events:none;
+        }
+        body::after{
+            content:"";
+            position:fixed;
+            inset:0;
+            background: rgba(11,15,23,.55);
+            z-index:-1;
+            pointer-events:none;
+        }
+
+        a{color:var(--accent2); text-decoration:none}
+        a:hover{text-decoration:underline}
+
+        /* En üst büyük çağrı */
+        .heroWrap{width:100%; padding:18px 16px 0;}
+        .hero{
+            max-width: var(--max);
+            margin:0 auto;
+            border:1px solid var(--line);
+            background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding:16px 16px;
+            text-align:center;
+        }
+        .hero .h0{
+            margin:0;
+            font-size:16px;
+            line-height:1.35;
+            font-weight:1000;
+        }
+        @media(min-width:720px){ .hero .h0{font-size:20px;} }
+        .hero b{color:var(--accent)}
+
+        /* Banner */
+        .bannerWrap{width:100%; padding:12px 12px 0;}
+        .banner{
+            max-width: var(--max);
+            margin:0 auto;
+            border:1px solid var(--line);
+            background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow:hidden;
+        }
+        .bannerInner{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:12px;
+            padding:14px 14px;
+        }
+        .bannerLogo{
+            width: auto;
+            height: 90px; /* Resim boyutu ideal seviyeye küçültüldü */
+            max-width: 100%;
+            object-fit: contain;
+            display: block;
+            filter: drop-shadow(0 10px 18px rgba(0,0,0,.35));
+        }
+
+        /* YENI EKLENEN KISIMLAR (CTA, TOPBAR, WRAP, BRAND VS.) */
+        .cta{
+            display:inline-flex; gap:8px; align-items:center; justify-content:center;
+            padding:10px 14px;
+            border-radius: 12px;
+            border:1px solid rgba(34,197,94,.45);
+            background: rgba(34,197,94,.16);
+            color: var(--text);
+            font-weight:900;
+            font-size:12px;
+            cursor:pointer;
+            transition: transform .08s ease, background .2s ease;
+            white-space:nowrap;
+            flex-shrink: 0;
+        }
+        .cta:hover{background: rgba(34,197,94,.22)}
+        .cta:active{transform: scale(.99)}
+        .cta a{color:inherit; text-decoration:none}
+
+        .wrap{max-width:var(--max); margin:0 auto; padding:14px 16px 60px}
+
+        .topbar{
+            display:flex; gap:14px; align-items:center; justify-content:space-between;
+            padding:16px 18px;
+            border:1px solid var(--line);
+            background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position:sticky; top:12px; z-index:20; backdrop-filter: blur(10px);
+            margin-top:12px;
+        }
+        .brand{display:flex; gap:12px; align-items:center}
+        .logoBox{
+            width:44px;height:44px;border-radius:14px;
+            border:1px solid rgba(255,255,255,.10);
+            background: rgba(255,255,255,.05);
+            display:grid; place-items:center;
+            overflow:hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,.22);
+            flex:0 0 auto;
+        }
+        .logoBox img{
+            width:100%; height:100%;
+            object-fit:cover; display:block;
+        }
+        .brand h1{font-size:16px; margin:0; line-height:1.1}
+        .brand p{margin:2px 0 0; font-size:12px; color:var(--muted)}
+        .right{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end;}
+        .pill{
+            border:1px solid var(--line);
+            background: rgba(255,255,255,.04);
+            padding:8px 10px;
+            border-radius: 999px;
+            font-size:12px;
+            color:var(--muted);
+            display:flex; gap:8px; align-items:center;
+        }
+        .btn{
+            border:1px solid rgba(34,197,94,.35);
+            background: rgba(34,197,94,.12);
+            color: var(--text);
+            padding:10px 12px;
+            border-radius: 12px;
+            font-weight:900;
+            font-size:12px;
+            display:flex; gap:8px; align-items:center;
+            cursor:pointer;
+            transition: transform .08s ease, background .2s ease;
+            user-select:none;
+            white-space:nowrap;
+        }
+        .btn:hover{background: rgba(34,197,94,.16)}
+        .btn:active{transform: scale(.98)}
+
+        .grid{
+            display:grid;
+            grid-template-columns: 1fr;
+            gap:14px;
+            margin-top:18px;
+        }
+        @media(min-width:980px){ .grid{grid-template-columns: 1fr 1fr;} }
+
+        /* Panel için ekstra karanlık modern glow efektleri */
+        .glass-panel {
+            background: linear-gradient(145deg, rgba(20,20,20,0.65) 0%, rgba(10,10,10,0.85) 100%);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Liste elemanları için hover efekti */
+        .winner-card:hover .gc-badge {
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+        
+        .winner-card:hover .cash-badge {
+            box-shadow: 0 0 15px rgba(74, 222, 128, 0.2);
+            border-color: rgba(74, 222, 128, 0.4);
+        }
+
+        /* Kaydırma çubuğu */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Üst Başlık (Hero) -->
+    <div class="heroWrap">
+        <div class="hero">
+            <p class="h0 text-lg sm:text-xl">GTA 5 GRAND RP'YE <a href="https://gta5grand.com/?ref=15077" target="_blank" class="text-green-500 hover:text-green-400 transition-colors underline decoration-2 underline-offset-4">BİZİM LİNKİMİZDEN KAYIT OL</a> ! <span class="text-green-500">100 GC & 2 MİLYON DOLAR</span> KAZAN!</p>
+            <p class="text-[13px] md:text-sm mt-3 text-gray-300 font-medium tracking-wide">⭐🏆 Ödüller her hafta <span class="text-yellow-500">GTA 5 Grand RP</span> içinde <a href="https://gta5grand.com/?ref=15077" target="_blank" class="text-green-500 hover:text-green-400 transition-colors underline decoration-1 underline-offset-2">bizim linkimizden kayıt olmuş</a>, <span class="text-green-500">25 - 100 saat</span> oynayan oyuncular arasından <span class="text-yellow-500">rastgele</span> dağıtılmaktadır 🎲🔥</p>
+            <p class="text-[14.5px] md:text-[16px] mt-3 text-white font-black tracking-wide drop-shadow-md">
+                🤑💸 Oyuna <a href="https://gta5grand.com/?ref=15077" target="_blank" class="text-green-400 hover:text-green-300 transition-colors underline decoration-2 underline-offset-4">bizim linkimizden kayıt olup</a> level 5 olan <span class="text-yellow-400">HERKES 5 MİLYON DOLAR</span> kazanacak! 🚀💰
+            </p>
+        </div>
+    </div>
+
+    <!-- Banner ve Logo -->
+    <div class="bannerWrap">
+        <div class="banner">
+            <div class="bannerInner" style="justify-content: center; flex-wrap: nowrap; overflow: hidden; gap: 8px;">
+                <img class="bannerLogo" src="https://raw.githubusercontent.com/DNZYDeniz/gtacheatsdnzy/main/7f58da_28e78ada1e3745538b9d9a578583460d~mv2.png" alt="DNZY Logo">
+                <a href="https://gta5grand.com/?ref=15077" target="_blank" class="cta">🚀 GTA 5 GRAND RP KAYIT OL</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrap (Topbar ve Ana Panel) -->
+    <div class="wrap">
+        
+        <!-- YENİ EKLENEN TOPBAR -->
+        <div class="topbar">
+            <div class="brand">
+                <div class="logoBox">
+                    <span style="font-size: 24px; font-weight: 900; font-style: italic; color: #60a5fa;">D</span>
+                </div>
+                <div>
+                    <h1>DNZY Ailesi — Haftalık Ödüller</h1>
+                    <p>Grand Roleplay • GC & Para Kazananlar • Güncellenebilir tablo</p>
+                </div>
+            </div>
+            <div class="right">
+                <a href="https://gta5grand.com/?ref=15077" target="_blank" class="pill hover:bg-white/10 transition-colors cursor-pointer"><i class="fa-solid fa-link text-neutral-400"></i> Kayıt Linki</a>
+                <a href="https://www.youtube.com/watch?v=hGkHloPcEMo" target="_blank" class="btn"><i class="fa-solid fa-thumbtack text-red-400"></i> Kurallara Git</a>
+            </div>
+        </div>
+
+        <!-- Ana Panel Konteyneri -->
+        <div class="glass-panel w-full rounded-2xl border border-neutral-800 overflow-hidden relative mt-6">
+            
+            <!-- Arkaplan Dekoratif Işıklar -->
+            <div class="absolute top-0 left-1/4 w-1/2 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50"></div>
+
+            <!-- Panel Başlığı -->
+            <div class="bg-black/40 p-6 text-center border-b border-neutral-800/80">
+                <h1 class="text-3xl font-black text-white tracking-widest uppercase drop-shadow-[0_2px_10px_rgba(255,255,255,0.1)]">
+                    <i class="fa-solid fa-trophy text-yellow-500 mr-3 animate-pulse"></i> HAFTALIK KAZANANLAR
+                </h1>
+                <p class="text-neutral-400 text-sm mt-2 font-medium tracking-wide">Ödüller en kısa sürede hesaplara aktarılacaktır.</p>
+            </div>
+
+            <!-- Kazananlar İçeriği (İki Kolon) -->
+            <div class="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- SOL KOLON: GC KAZANANLARI -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3 border-b border-neutral-800 pb-3 mb-5">
+                        <i class="fa-solid fa-crown text-yellow-500 text-xl"></i>
+                        <h2 class="text-xl font-bold text-gray-200 tracking-wide uppercase">GC Kazananlar</h2>
+                    </div>
+                    
+                    <div class="space-y-3" id="gc-winners-list">
+                        <!-- Javascript ile doldurulacak -->
+                    </div>
+                </div>
+
+                <!-- SAĞ KOLON: OYUN PARASI KAZANANLARI -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3 border-b border-neutral-800 pb-3 mb-5">
+                        <i class="fa-solid fa-sack-dollar text-green-400 text-xl"></i>
+                        <h2 class="text-xl font-bold text-gray-200 tracking-wide uppercase">Nakit Kazananlar</h2>
+                    </div>
+                    
+                    <div class="space-y-3" id="cash-winners-list">
+                        <!-- Javascript ile doldurulacak -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- VERİLER ---
+        const gcWinners = [
+            { id: "105998", name: "ONUR GUNAY", amount: "100 GC", playtime: "139.3" },
+            { id: "448735", name: "CENGIZ MAFIIA", amount: "75 GC", playtime: "92.36" },
+            { id: "504591", name: "ATAKUM SCOFIELD", amount: "75 GC", playtime: "98.22" },
+            { id: "538516", name: "HAMZA KINGSLEY", amount: "75 GC", playtime: "99.48" },
+            { id: "538273", name: "DEXTER DARKSIDE", amount: "75 GC", playtime: "102.9" },
+            { id: "536922", name: "ROTH RAGE", amount: "75 GC", playtime: "82.51" },
+            { id: "530453", name: "SUNGUR BEY", amount: "50 GC", playtime: "51.30" },
+            { id: "537801", name: "CUDI NAS", amount: "50 GC", playtime: "37.38" },
+            { id: "528782", name: "EYMENYT YAMAN", amount: "50 GC", playtime: "29.47" },
+            { id: "460194", name: "SAKURA FOX", amount: "50 GC", playtime: "68.33" },
+            { id: "540634", name: "MUHTAR AHMET", amount: "50 GC", playtime: "39.22" }
+        ];
+
+        const cashWinners = [
+            { id: "537367", name: "TEZCAN FOX", amount: "5 Milyon", playtime: "80.18" },
+            { id: "526427", name: "YSNENES SARSILMAZ", amount: "1 Milyon", playtime: "69.20" },
+            { id: "527215", name: "RECO WESTT", amount: "1 Milyon", playtime: "48.52" },
+            { id: "532821", name: "SERGEY MIHAILOV", amount: "1 Milyon", playtime: "46.59" },
+            { id: "533834", name: "VOLKAN GUNNER", amount: "1 Milyon", playtime: "25.1" },
+            { id: "535029", name: "SHANKS YONKOU", amount: "1 Milyon", playtime: "33.57" },
+            { id: "540212", name: "CIO LUX", amount: "1 Milyon", playtime: "25.31" },
+            { id: "353371", name: "BEDIRHAN LYNX", amount: "1 Milyon", playtime: "30.17" },
+            { id: "534704", name: "MUHTAR SEMIH", amount: "1 Milyon", playtime: "53.50" },
+            { id: "539525", name: "TUNA BILGIN", amount: "1 Milyon", playtime: "61.25" }
+        ];
+
+        // Kategori Açıklamaları Veritabanı
+        const categoryDescriptions = {
+            "100 GC": "100 saat ve üzeri oynayan",
+            "75 GC": "100 saat ve üzeri oynayan",
+            "50 GC": "25 saat ve üzeri oynayan",
+            "5 Milyon": "80 saat ve üzeri oynayan",
+            "1 Milyon": "25+ saat oynayan herkes"
+        };
+
+        // --- HTML OLUŞTURUCU FONKSİYONLAR ---
+        
+        // GC Tasarımı: Siyah Buton + Sarı Kral Tacı + Beyaz Yazı
+        function renderGCWinners() {
+            const container = document.getElementById('gc-winners-list');
+            let html = '';
+            let currentCategory = '';
+            
+            gcWinners.forEach(winner => {
+                // Kategori Ayracı Ekleme
+                if (currentCategory !== winner.amount) {
+                    currentCategory = winner.amount;
+                    const desc = categoryDescriptions[currentCategory] || "";
+                    
+                    html += `
+                    <div class="flex items-center gap-3 mt-6 mb-3 first:mt-0">
+                        <div class="h-px bg-gradient-to-r from-yellow-500/0 via-yellow-500/30 to-yellow-500/0 flex-grow"></div>
+                        <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest px-3 py-1 bg-yellow-900/20 rounded border border-yellow-700/30 shadow-sm whitespace-nowrap text-center">
+                            ${currentCategory} <span class="text-yellow-200/60 ml-1 tracking-normal">| ${desc}</span>
+                        </span>
+                        <div class="h-px bg-gradient-to-r from-yellow-500/0 via-yellow-500/30 to-yellow-500/0 flex-grow"></div>
+                    </div>
+                    `;
+                }
+
+                // En yüksek ödül (100 GC) için ufak bir tasarım farkı yaratmak istersen border rengini altın yapabilirsin
+                const isTopPrize = winner.amount === "100 GC";
+                const borderClass = isTopPrize ? 'border-yellow-600/50 bg-yellow-900/10' : 'border-[#222] bg-[#111]';
+                
+                html += `
+                <div class="winner-card flex items-center p-3 ${borderClass} rounded-xl hover:bg-[#1a1a1a] transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-0.5 cursor-default">
+                    
+                    <!-- GC Rozeti (Siyah Buton) -->
+                    <div class="gc-badge flex items-center justify-center gap-2 bg-black border border-[#333] rounded-full px-4 py-2 min-w-[100px] shadow-inner transition-all duration-300 shrink-0">
+                        <i class="fa-solid fa-crown text-[#FFD700] text-sm drop-shadow-md"></i>
+                        <span class="text-white font-bold text-sm tracking-wide whitespace-nowrap">${winner.amount}</span>
+                    </div>
+
+                    <!-- Kullanıcı Bilgisi -->
+                    <div class="flex flex-col ml-4 overflow-hidden">
+                        <span class="text-gray-100 font-bold tracking-wider text-sm truncate">${winner.name}</span>
+                        <span class="text-gray-500 text-xs font-mono mt-0.5 flex items-center">
+                            <i class="fa-solid fa-id-card text-[10px] mr-1 opacity-50"></i>ID: ${winner.id}
+                            <span class="ml-2 pl-2 border-l border-neutral-700 opacity-80 flex items-center"><i class="fa-regular fa-clock text-[10px] mr-1"></i>${winner.playtime} Saat</span>
+                        </span>
+                    </div>
+                    
+                </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        // Oyun Parası Tasarımı: Siyah Buton + Yeşil İkon + Beyaz Yazı (Tasarım bütünlüğü için)
+        function renderCashWinners() {
+            const container = document.getElementById('cash-winners-list');
+            let html = '';
+            let currentCategory = '';
+            
+            cashWinners.forEach(winner => {
+                // Kategori Ayracı Ekleme
+                if (currentCategory !== winner.amount) {
+                    currentCategory = winner.amount;
+                    const desc = categoryDescriptions[currentCategory] || "";
+
+                    html += `
+                    <div class="flex items-center gap-3 mt-6 mb-3 first:mt-0">
+                        <div class="h-px bg-gradient-to-r from-green-500/0 via-green-500/30 to-green-500/0 flex-grow"></div>
+                        <span class="text-[10px] font-bold text-green-400 uppercase tracking-widest px-3 py-1 bg-green-900/20 rounded border border-green-700/30 shadow-sm whitespace-nowrap text-center">
+                            ${currentCategory} <span class="text-green-200/60 ml-1 tracking-normal">| ${desc}</span>
+                        </span>
+                        <div class="h-px bg-gradient-to-r from-green-500/0 via-green-500/30 to-green-500/0 flex-grow"></div>
+                    </div>
+                    `;
+                }
+
+                const isTopPrize = winner.amount === "5 Milyon";
+                const borderClass = isTopPrize ? 'border-green-800/40 bg-green-900/10' : 'border-[#222] bg-[#111]';
+
+                html += `
+                <div class="winner-card flex items-center p-3 ${borderClass} rounded-xl hover:bg-[#1a1a1a] transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-0.5 cursor-default">
+                    
+                    <!-- Nakit Rozeti (Siyah Buton) -->
+                    <div class="cash-badge flex items-center justify-center gap-2 bg-black border border-[#333] rounded-full px-4 py-2 min-w-[100px] shadow-inner transition-all duration-300 shrink-0">
+                        <i class="fa-solid fa-sack-dollar text-[#4ADE80] text-sm drop-shadow-md"></i>
+                        <span class="text-white font-bold text-sm tracking-wide whitespace-nowrap">${winner.amount}</span>
+                    </div>
+
+                    <!-- Kullanıcı Bilgisi -->
+                    <div class="flex flex-col ml-4 overflow-hidden">
+                        <span class="text-gray-100 font-bold tracking-wider text-sm truncate">${winner.name}</span>
+                        <span class="text-gray-500 text-xs font-mono mt-0.5 flex items-center">
+                            <i class="fa-solid fa-id-card text-[10px] mr-1 opacity-50"></i>ID: ${winner.id}
+                            <span class="ml-2 pl-2 border-l border-neutral-700 opacity-80 flex items-center"><i class="fa-regular fa-clock text-[10px] mr-1"></i>${winner.playtime} Saat</span>
+                        </span>
+                    </div>
+                    
+                </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        // Sayfa yüklendiğinde listeleri oluştur
+        document.addEventListener('DOMContentLoaded', () => {
+            renderGCWinners();
+            renderCashWinners();
+        });
+    </script>
+</body>
+</html>
