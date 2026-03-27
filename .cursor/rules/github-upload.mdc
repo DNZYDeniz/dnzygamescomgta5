@@ -1,0 +1,17 @@
+---
+description: Kullanıcı "githuba yükle" dediğinde depoyu GitHub'a gönder
+alwaysApply: true
+---
+
+# GitHub'a yükle
+
+Kullanıcı **githuba yükle**, **GitHub'a yükle**, **pushla**, **remote'a at** veya aynı anlama gelen ifadeler kullandığında:
+
+1. Proje kökünde `git status` ile değişiklikleri kontrol et.
+2. Commit edilmemiş değişiklik yoksa bunu söyle ve dur.
+3. Varsa: ilgili dosyaları `git add` ile ekle (genelde tüm güncellenen proje dosyaları; gereksiz yere `.env` veya gizli sırları ekleme).
+4. Anlamlı bir Türkçe veya İngilizce commit mesajıyla `git commit` yap (mesaj yoksa kullanıcının son isteğine uygun kısa bir özet kullan).
+5. `git push origin main` (veya mevcut upstream dalı) çalıştır.
+6. Hata olursa (auth, conflict) çıktıyı okuyup çözüm dene veya kullanıcıya net hata özeti ver.
+
+Kullanıcı açıkça sadece belirli dosyaları istemediyse tüm mantıklı değişiklikleri dahil et.
