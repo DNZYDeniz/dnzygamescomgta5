@@ -306,7 +306,11 @@
                         <i class="fa-solid fa-crown text-yellow-500 text-xl"></i>
                         <h2 class="text-xl font-bold text-gray-200 tracking-wide uppercase">GC Kazananlar</h2>
                     </div>
-                    
+                    <p class="text-xs text-neutral-500 -mt-2 mb-4 leading-relaxed">
+                        <span class="text-neutral-400 font-semibold">Not (75 GC):</span>
+                        100+ saat havuzunda toplam 5 uygun kişi vardı; 1 kişi 100 GC alınca geriye 4 kişi kaldı.
+                        90+ saat altına inse de ek uygun kişi çıkmadığı için bu kategoride 4 kazanan oluştu.
+                    </p>
                     <div class="space-y-3" id="gc-winners-list">
                         <!-- Javascript ile doldurulacak -->
                     </div>
@@ -331,39 +335,43 @@
     <script>
         // --- VERİLER ---
         const gcWinners = [
-            { id: "105998", name: "ONUR GUNAY", amount: "100 GC", playtime: "139.3" },
-            { id: "448735", name: "CENGIZ MAFIIA", amount: "75 GC", playtime: "92.36" },
-            { id: "504591", name: "ATAKUM SCOFIELD", amount: "75 GC", playtime: "98.22" },
-            { id: "538516", name: "HAMZA KINGSLEY", amount: "75 GC", playtime: "99.48" },
-            { id: "538273", name: "DEXTER DARKSIDE", amount: "75 GC", playtime: "102.9" },
-            { id: "536922", name: "ROTH RAGE", amount: "75 GC", playtime: "82.51" },
-            { id: "530453", name: "SUNGUR BEY", amount: "50 GC", playtime: "51.30" },
-            { id: "537801", name: "CUDI NAS", amount: "50 GC", playtime: "37.38" },
-            { id: "528782", name: "EYMENYT YAMAN", amount: "50 GC", playtime: "29.47" },
-            { id: "460194", name: "SAKURA FOX", amount: "50 GC", playtime: "68.33" },
-            { id: "540634", name: "MUHTAR AHMET", amount: "50 GC", playtime: "39.22" }
+            { id: "105998", name: "ONUR FOX", amount: "100 GC", playtime: "" },
+            { id: "534704", name: "MUHTAR SEMIH", amount: "75 GC", playtime: "" },
+            { id: "448735", name: "CENGIZ MAFIIA", amount: "75 GC", playtime: "" },
+            { id: "540634", name: "MUHTAR FOX", amount: "75 GC", playtime: "" },
+            { id: "504591", name: "ATAKUM SCOFIELD", amount: "75 GC", playtime: "" },
+            { id: "521219", name: "DAPOLYON KAPLAN", amount: "50 GC", playtime: "" },
+            { id: "541931", name: "KARBO RAVEN", amount: "50 GC", playtime: "" },
+            { id: "541401", name: "ORYX FOX", amount: "50 GC", playtime: "" },
+            { id: "538516", name: "HAMZA FOX", amount: "50 GC", playtime: "" },
+            { id: "541429", name: "FLEX SS", amount: "50 GC", playtime: "" }
         ];
 
         const cashWinners = [
-            { id: "537367", name: "TEZCAN FOX", amount: "5 Milyon", playtime: "80.18" },
-            { id: "526427", name: "YSNENES SARSILMAZ", amount: "1 Milyon", playtime: "69.20" },
-            { id: "527215", name: "RECO WESTT", amount: "1 Milyon", playtime: "48.52" },
-            { id: "532821", name: "SERGEY MIHAILOV", amount: "1 Milyon", playtime: "46.59" },
-            { id: "533834", name: "VOLKAN GUNNER", amount: "1 Milyon", playtime: "25.1" },
-            { id: "535029", name: "SHANKS YONKOU", amount: "1 Milyon", playtime: "33.57" },
-            { id: "540212", name: "CIO LUX", amount: "1 Milyon", playtime: "25.31" },
-            { id: "353371", name: "BEDIRHAN LYNX", amount: "1 Milyon", playtime: "30.17" },
-            { id: "534704", name: "MUHTAR SEMIH", amount: "1 Milyon", playtime: "53.50" },
-            { id: "539525", name: "TUNA BILGIN", amount: "1 Milyon", playtime: "61.25" }
+            { id: "537367", name: "TEZCAN FOX", amount: "5 Milyon", playtime: "" },
+            { id: "541281", name: "ARES BELLINI", amount: "1 Milyon", playtime: "" },
+            { id: "542183", name: "ERUSSA HARRIS", amount: "1 Milyon", playtime: "" },
+            { id: "484935", name: "TARO MISAKI", amount: "1 Milyon", playtime: "" },
+            { id: "531308", name: "SERKO KARR", amount: "1 Milyon", playtime: "" },
+            { id: "540858", name: "BILAL KOCAK", amount: "1 Milyon", playtime: "" },
+            { id: "259779", name: "PAUL LUVIA", amount: "1 Milyon", playtime: "" },
+            { id: "353371", name: "BEDIRHAN NACAR", amount: "1 Milyon", playtime: "" },
+            { id: "460194", name: "SAKURA FOX", amount: "1 Milyon", playtime: "" },
+            { id: "526427", name: "YSNENES SARSILMAZ", amount: "1 Milyon", playtime: "" },
+            { id: "527215", name: "RECO WESTT", amount: "1 Milyon", playtime: "" },
+            { id: "528654", name: "METEE SCOOTTT", amount: "1 Milyon", playtime: "" },
+            { id: "530453", name: "SUNGUR BEY", amount: "1 Milyon", playtime: "" },
+            { id: "538273", name: "DEXTER DARKSIDE", amount: "1 Milyon", playtime: "" },
+            { id: "539525", name: "TUNA FOX", amount: "1 Milyon", playtime: "" }
         ];
 
         // Kategori Açıklamaları Veritabanı
         const categoryDescriptions = {
-            "100 GC": "100 saat ve üzeri oynayan",
-            "75 GC": "100 saat ve üzeri oynayan",
-            "50 GC": "25 saat ve üzeri oynayan",
-            "5 Milyon": "80 saat ve üzeri oynayan",
-            "1 Milyon": "25+ saat oynayan herkes"
+            "100 GC": "100+ saat (1 kişi)",
+            "75 GC": "100+/90+ saat (4 kişi)",
+            "50 GC": "22+ saat (5 kişi)",
+            "5 Milyon": "80+ saat (1 kişi)",
+            "1 Milyon": "Kalan uygunlar"
         };
 
         // --- HTML OLUŞTURUCU FONKSİYONLAR ---
@@ -394,7 +402,10 @@
                 // En yüksek ödül (100 GC) için ufak bir tasarım farkı yaratmak istersen border rengini altın yapabilirsin
                 const isTopPrize = winner.amount === "100 GC";
                 const borderClass = isTopPrize ? 'border-yellow-600/50 bg-yellow-900/10' : 'border-[#222] bg-[#111]';
-                
+                const playtimeHtml = winner.playtime
+                    ? `<span class="ml-2 pl-2 border-l border-neutral-700 opacity-80 flex items-center"><i class="fa-regular fa-clock text-[10px] mr-1"></i>${winner.playtime} Saat</span>`
+                    : "";
+
                 html += `
                 <div class="winner-card flex items-center p-3 ${borderClass} rounded-xl hover:bg-[#1a1a1a] transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-0.5 cursor-default">
                     
@@ -409,7 +420,7 @@
                         <span class="text-gray-100 font-bold tracking-wider text-sm truncate">${winner.name}</span>
                         <span class="text-gray-500 text-xs font-mono mt-0.5 flex items-center">
                             <i class="fa-solid fa-id-card text-[10px] mr-1 opacity-50"></i>ID: ${winner.id}
-                            <span class="ml-2 pl-2 border-l border-neutral-700 opacity-80 flex items-center"><i class="fa-regular fa-clock text-[10px] mr-1"></i>${winner.playtime} Saat</span>
+                            ${playtimeHtml}
                         </span>
                     </div>
                     
@@ -444,6 +455,9 @@
 
                 const isTopPrize = winner.amount === "5 Milyon";
                 const borderClass = isTopPrize ? 'border-green-800/40 bg-green-900/10' : 'border-[#222] bg-[#111]';
+                const playtimeHtml = winner.playtime
+                    ? `<span class="ml-2 pl-2 border-l border-neutral-700 opacity-80 flex items-center"><i class="fa-regular fa-clock text-[10px] mr-1"></i>${winner.playtime} Saat</span>`
+                    : "";
 
                 html += `
                 <div class="winner-card flex items-center p-3 ${borderClass} rounded-xl hover:bg-[#1a1a1a] transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-0.5 cursor-default">
@@ -459,7 +473,7 @@
                         <span class="text-gray-100 font-bold tracking-wider text-sm truncate">${winner.name}</span>
                         <span class="text-gray-500 text-xs font-mono mt-0.5 flex items-center">
                             <i class="fa-solid fa-id-card text-[10px] mr-1 opacity-50"></i>ID: ${winner.id}
-                            <span class="ml-2 pl-2 border-l border-neutral-700 opacity-80 flex items-center"><i class="fa-regular fa-clock text-[10px] mr-1"></i>${winner.playtime} Saat</span>
+                            ${playtimeHtml}
                         </span>
                     </div>
                     
