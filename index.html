@@ -334,41 +334,45 @@
     <script>
         // --- VERİLER ---
         const gcWinners = [
-            { id: "534704", name: "MUHTAR SEMIH", amount: "100 GC", playtime: "" },
-            { id: "541281", name: "ARES BELLINI", amount: "75 GC", playtime: "" },
-            { id: "105998", name: "ONUR FOX", amount: "75 GC", playtime: "" },
-            { id: "504591", name: "ATAKUM SCOFIELD", amount: "75 GC", playtime: "" },
-            { id: "353371", name: "BEDIRHAN NACAR", amount: "75 GC", playtime: "" },
-            { id: "448735", name: "CENGIZ MAFIA", amount: "75 GC", playtime: "" },
-            { id: "494699", name: "EFASA ABI", amount: "50 GC", playtime: "" },
-            { id: "521219", name: "DAPOLYON KAPLAN", amount: "50 GC", playtime: "" },
-            { id: "528782", name: "JACE FOX", amount: "50 GC", playtime: "" },
-            { id: "542183", name: "ERUSSA HARRIS", amount: "50 GC", playtime: "" },
-            { id: "544279", name: "GNG SCOTT", amount: "50 GC", playtime: "" }
+            { id: "527215", name: "RECO WESTT", amount: "100 GC", playtime: "101.34" },
+            { id: "452322", name: "RED ROSA", amount: "75 GC", playtime: "121.29" },
+            { id: "537367", name: "TEZO FOX", amount: "75 GC", playtime: "92.38" },
+            { id: "448735", name: "CENGIZ MAFIIA", amount: "75 GC", playtime: "119.24" },
+            { id: "353371", name: "BEDIRHAN NACAR", amount: "75 GC", playtime: "121.32" },
+            { id: "105998", name: "ONUR FOX", amount: "75 GC", playtime: "147.53" },
+            { id: "521219", name: "DAPOLYON KAPLAN", amount: "50 GC", playtime: "67.48" },
+            { id: "541281", name: "ARES BELLINI", amount: "50 GC", playtime: "89.32" },
+            { id: "504591", name: "ATAKUM SCOFIELD", amount: "50 GC", playtime: "79.33" },
+            { id: "538516", name: "HAMZA FOXX", amount: "50 GC", playtime: "78.57" },
+            { id: "534704", name: "MUHTAR SEMIH", amount: "50 GC", playtime: "79.41" }
         ];
 
         const cashWinners = [
-            { id: "538516", name: "HAMZA FOX", amount: "5 Milyon", playtime: "" },
-            { id: "484935", name: "TARO MISAKI", amount: "1 Milyon", playtime: "" },
-            { id: "530453", name: "SUNGUR BEY", amount: "1 Milyon", playtime: "" },
-            { id: "538273", name: "DEXTER DARKSIDE", amount: "1 Milyon", playtime: "" },
-            { id: "506547", name: "RUZGAR FOX", amount: "1 Milyon", playtime: "" },
-            { id: "526427", name: "YSNENES SARSILMAZ", amount: "1 Milyon", playtime: "" },
-            { id: "527215", name: "RECO WESTT", amount: "1 Milyon", playtime: "" },
-            { id: "537367", name: "TEZCANN FOX", amount: "1 Milyon", playtime: "" },
-            { id: "541429", name: "JEYS FOX", amount: "1 Milyon", playtime: "" },
-            { id: "543343", name: "HATRED NOCERE", amount: "1 Milyon", playtime: "" },
-            { id: "543832", name: "ADLENNES HARRIS", amount: "1 Milyon", playtime: "" },
-            { id: "544168", name: "HAMZA YESIL", amount: "1 Milyon", playtime: "" }
+            { id: "512826", name: "STONEWALL FAYLE", amount: "5 Milyon", playtime: "82.29" },
+            { id: "484935", name: "TARO MISAKI", amount: "1 Milyon", playtime: "31.58" },
+            { id: "530453", name: "SUNGUR BEY", amount: "1 Milyon", playtime: "55.57" },
+            { id: "540634", name: "MUHTAR FOX", amount: "1 Milyon", playtime: "31.36" },
+            { id: "542183", name: "ERUSSA HARRIS", amount: "1 Milyon", playtime: "29.60" },
+            { id: "544168", name: "HAMZA YESIL", amount: "1 Milyon", playtime: "35.52" },
+            { id: "544579", name: "None", amount: "1 Milyon", playtime: "46.48" },
+            { id: "545947", name: "RICHARD AYALA", amount: "1 Milyon", playtime: "36.23" },
+            { id: "547415", name: "RAMANOVV FOX", amount: "1 Milyon", playtime: "39.60" },
+            { id: "543832", name: "ADLENNES HARRIS", amount: "1 Milyon", playtime: "62.10" },
+            { id: "546618", name: "UUR DOGAN", amount: "1 Milyon", playtime: "28.14" },
+            { id: "547495", name: "DANIEL CETIN", amount: "1 Milyon", playtime: "31.20" },
+            { id: "460194", name: "SAKURA FOX", amount: "1 Milyon", playtime: "38.26" },
+            { id: "476429", name: "ALBERT FERGUSON", amount: "1 Milyon", playtime: "29.54" },
+            { id: "546455", name: "JASY BABYTR", amount: "1 Milyon", playtime: "58.58" },
+            { id: "355870", name: "SAHIN FOX", amount: "1 Milyon", playtime: "35.33" }
         ];
 
         // Kategori Açıklamaları Veritabanı
         const categoryDescriptions = {
             "100 GC": "100+ saat (1 kişi)",
-            "75 GC": "100+/85+ saat",
+            "75 GC": "100+/90+ saat (5 kişi)",
             "50 GC": "22+ saat (5 kişi)",
             "5 Milyon": "80+ saat (1 kişi)",
-            "1 Milyon": "Kalan uygunlar"
+            "1 Milyon": "25+saat oynayan tum linkli uyeler"
         };
 
         // --- HTML OLUŞTURUCU FONKSİYONLAR ---
