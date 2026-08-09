@@ -278,7 +278,7 @@
                 </div>
             </div>
             <div class="right">
-                <span class="pill"><i class="fa-regular fa-calendar-check text-green-400"></i> Son Guncelleme: <span id="last-updated-topbar" class="text-green-300">02.08.2026 17:23</span></span>
+                <span class="pill"><i class="fa-regular fa-calendar-check text-green-400"></i> Son Guncelleme: <span id="last-updated-topbar" class="text-green-300">09.08.2026 22:53</span></span>
                 <a href="https://gta5grand.com/?ref=15077" target="_blank" class="pill hover:bg-white/10 transition-colors cursor-pointer"><i class="fa-solid fa-link text-neutral-400"></i> Kayıt Linki</a>
                 <a href="https://www.youtube.com/watch?v=hGkHloPcEMo" target="_blank" class="btn"><i class="fa-solid fa-thumbtack text-red-400"></i> Kurallara Git</a>
             </div>
@@ -299,7 +299,7 @@
                 <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-700 bg-black/40 text-xs md:text-sm text-neutral-200 font-semibold">
                     <i class="fa-regular fa-calendar-check text-green-400"></i>
                     <span>Son Guncelleme:</span>
-                    <span id="last-updated-text" class="text-green-300">02.08.2026 17:23</span>
+                    <span id="last-updated-text" class="text-green-300">09.08.2026 22:53</span>
                 </div>
             </div>
 
@@ -340,44 +340,52 @@
     <script>
         // --- VERİLER ---
         const gcWinners = [
-  { id: "452322", name: "MEMOO YVZ", amount: "100 GC", playtime: "148.19" },
-  { id: "105998", name: "ONUR GUNAY", amount: "75 GC", playtime: "146.55" },
-  { id: "512826", name: "SAMET FOXX", amount: "75 GC", playtime: "134.5" },
-  { id: "546618", name: "UUR DOGAN", amount: "75 GC", playtime: "132.16" },
-  { id: "566105", name: "DELI GURDAL", amount: "75 GC", playtime: "115.17" },
-  { id: "541281", name: "ARES BELLINI", amount: "75 GC", playtime: "102" },
-  { id: "566125", name: "GRANDPA SHELBY", amount: "50 GC", playtime: "124.43" },
-  { id: "504591", name: "ATAKUM SCOFIELD", amount: "50 GC", playtime: "123.13" },
-  { id: "387011", name: "JAYSWIFTH FOROZVERK", amount: "50 GC", playtime: "109.03" },
-  { id: "565995", name: "ENZO CROSS", amount: "50 GC", playtime: "92.37" },
-  { id: "539525", name: "TUNA SLOXY", amount: "50 GC", playtime: "64.09" },
+  { id: "105998", name: "ONUR GUNAY", amount: "100 GC", playtime: "116.06" },
+  { id: "452322", name: "MEMOO YVZ", amount: "75 GC", playtime: "157.11" },
+  { id: "566125", name: "GRANDPA SHELBY", amount: "75 GC", playtime: "151.23" },
+  { id: "546618", name: "UUR DOGAN", amount: "75 GC", playtime: "150.03" },
+  { id: "541281", name: "ARES BELLINI", amount: "75 GC", playtime: "139.4" },
+  { id: "556994", name: "HAMZA CAKIRBEYLI", amount: "75 GC", playtime: "105.18" },
+  { id: "512826", name: "SAMET FOXX", amount: "50 GC", playtime: "146.55" },
+  { id: "566105", name: "DELI GURDAL", amount: "50 GC", playtime: "141.1" },
+  { id: "387011", name: "JAYSWIFTH FOROZVERK", amount: "50 GC", playtime: "106.71" },
+  { id: "550933", name: "BILAL YRL", amount: "50 GC", playtime: "90.15" },
+  { id: "555699", name: "LEONNN KENEDY", amount: "50 GC", playtime: "71.25" },
 ];
 
         const cashWinners = [
-  { id: "452322", name: "MEMOO YVZ", amount: "5 Milyon", playtime: "148.19", bonus: true },
-  { id: "559923", name: "BARONES NRG", amount: "5 Milyon", playtime: "106.3" },
-  { id: "551549", name: "UFK DGN", amount: "1 Milyon", playtime: "107.25" },
-  { id: "534704", name: "MISTER MUHTAR", amount: "1 Milyon", playtime: "99.47" },
-  { id: "555699", name: "LEONNN KENEDY", amount: "1 Milyon", playtime: "93.39" },
-  { id: "557290", name: "CASTIEL DARKNESS", amount: "1 Milyon", playtime: "89.01" },
-  { id: "294322", name: "KUTAY ADIYAMAN", amount: "1 Milyon", playtime: "88.28" },
-  { id: "561296", name: "NASTYA HOPE", amount: "1 Milyon", playtime: "81.4" },
-  { id: "541429", name: "JEYS FOXX", amount: "1 Milyon", playtime: "77.12" },
-  { id: "444626", name: "REBORT MIKAELSON", amount: "1 Milyon", playtime: "68.53" },
-  { id: "559918", name: "CAN GHOSTOV", amount: "1 Milyon", playtime: "68.29" },
-  { id: "353371", name: "BEDIRHAN LYNX", amount: "1 Milyon", playtime: "56.25" },
-  { id: "460194", name: "SAKURA FOX", amount: "1 Milyon", playtime: "38.42" },
-  { id: "565413", name: "FURKAN DNZY", amount: "1 Milyon", playtime: "35.01" },
-  { id: "505094", name: "ONUR ONAY", amount: "1 Milyon", playtime: "35.1" },
-  { id: "567581", name: "JETTIR BABA", amount: "1 Milyon", playtime: "34.13" },
-  { id: "559827", name: "ALCAPONE DIAZ", amount: "1 Milyon", playtime: "31.41" },
-  { id: "562873", name: "ARADOBOA MILANO", amount: "1 Milyon", playtime: "30.43" },
-  { id: "556994", name: "HAMZA CAKIRBEYLI", amount: "1 Milyon", playtime: "29.3" },
-  { id: "537656", name: "RAWZEN LUCIEN", amount: "500 Bin", playtime: "58.28", family: true },
-  { id: "403529", name: "ANTONIO GRIEZMANN", amount: "500 Bin", playtime: "53.22", family: true },
-  { id: "561468", name: "XIDIR XIDIRLI", amount: "500 Bin", playtime: "31.44", family: true },
-  { id: "471481", name: "SHANE ALEMDAR", amount: "500 Bin", playtime: "28.2", family: true },
-  { id: "507019", name: "WEGH SHELBY", amount: "500 Bin", playtime: "27.27", family: true },
+  { id: "452322", name: "MEMOO YVZ", amount: "5 Milyon", playtime: "157.11", bonus: true },
+  { id: "561846", name: "ZEUS DNZ", amount: "5 Milyon", playtime: "80.58" },
+  { id: "565995", name: "ENZO CROSS", amount: "1 Milyon", playtime: "126.25" },
+  { id: "534704", name: "MISTER MUHTARR", amount: "1 Milyon", playtime: "123.17" },
+  { id: "559923", name: "BARONES NRG", amount: "1 Milyon", playtime: "117.44" },
+  { id: "557290", name: "CASTIEL DARKNESS", amount: "1 Milyon", playtime: "104.01" },
+  { id: "561296", name: "NASTYA HOPE", amount: "1 Milyon", playtime: "101.09" },
+  { id: "565752", name: "KENZYY WAKSS", amount: "1 Milyon", playtime: "95" },
+  { id: "551549", name: "UFK DGN", amount: "1 Milyon", playtime: "92.45" },
+  { id: "294322", name: "KUTAY ADIYAMAN", amount: "1 Milyon", playtime: "90.51" },
+  { id: "504591", name: "ATAKUM SCOFIELD", amount: "1 Milyon", playtime: "88.47" },
+  { id: "568131", name: "SERHAT ASLANBEY", amount: "1 Milyon", playtime: "83.48" },
+  { id: "541429", name: "JEYS ALVAREZZZ", amount: "1 Milyon", playtime: "78.28" },
+  { id: "558322", name: "IBOONAIR AKYAZI", amount: "1 Milyon", playtime: "75.28" },
+  { id: "568141", name: "FATIH CAKIRBEYLI", amount: "1 Milyon", playtime: "63.5" },
+  { id: "564146", name: "ALPARSLAN SARSLMZ", amount: "1 Milyon", playtime: "61.16" },
+  { id: "444626", name: "REBORT MIKAELSON", amount: "1 Milyon", playtime: "55.08" },
+  { id: "566674", name: "CHIVASSS REGGALL", amount: "1 Milyon", playtime: "55.05" },
+  { id: "562873", name: "BERFIN KUCUKASLAN", amount: "1 Milyon", playtime: "54.55" },
+  { id: "539525", name: "TUNA SLOXY", amount: "1 Milyon", playtime: "49.3" },
+  { id: "565413", name: "FURKAN DNZY", amount: "1 Milyon", playtime: "48.16" },
+  { id: "484935", name: "HAM SATO", amount: "1 Milyon", playtime: "35.01" },
+  { id: "565195", name: "ARDA VEGAS", amount: "1 Milyon", playtime: "34.48" },
+  { id: "559827", name: "ALCAPONE DIAZ", amount: "1 Milyon", playtime: "31.54" },
+  { id: "454117", name: "None", amount: "1 Milyon", playtime: "31.34" },
+  { id: "338333", name: "CAN STRONGER", amount: "1 Milyon", playtime: "29.08" },
+  { id: "521219", name: "DAPOLYON KAPLAN", amount: "1 Milyon", playtime: "27.2" },
+  { id: "567625", name: "FLUX BROWN", amount: "500 Bin", playtime: "65.06", family: true },
+  { id: "455020", name: "KANE VON", amount: "500 Bin", playtime: "58.22", family: true },
+  { id: "568195", name: "MOE MCLOVIN", amount: "500 Bin", playtime: "36.12", family: true },
+  { id: "568262", name: "DOE MCLOVIN", amount: "500 Bin", playtime: "34.07", family: true },
+  { id: "527454", name: "LEYO DANIELS", amount: "500 Bin", playtime: "32.13", family: true },
 ];
 
         // Kategori Açıklamaları Veritabanı
