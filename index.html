@@ -1,512 +1,171 @@
 <!doctype html>
 <html lang="tr">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>DNZY Ailesi — Haftalık Ödüller</title>
-    <meta name="description" content="Grand Roleplay DNZY Ailesi haftalık GC ve para kazananlar, kurallar ve kampanyalar." />
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DNZY Ailesi | Haftalık Para Ödülleri</title>
+    <meta name="description" content="DNZY Ailesi Grand RP haftalık para ödülleri: en çok saat yapan oyuncuya 10 milyon, çekiliş ve katılım ödülleri.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
     <style>
-        :root{
-            --bg:#0b0f17;
-            --text:#e5e7eb;
-            --muted:#9ca3af;
-            --line:rgba(255,255,255,.10);
-            --accent:#22c55e;
-            --accent2:#60a5fa;
-            --warn:#f59e0b;
-            --danger:#ef4444;
-            --shadow: 0 10px 30px rgba(0,0,0,.35);
-            --radius:18px;
-            --radius2:14px;
-            --max:1100px;
-        }
-        *{box-sizing:border-box}
-
-        html, body{
-            width:100%;
-            min-height:100%;
-            overflow-x:hidden;
-            overflow-y:auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        body{
-            margin:0;
-            font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-            background:
-                radial-gradient(1200px 700px at 20% -10%, rgba(34,197,94,.22), transparent 60%),
-                radial-gradient(900px 500px at 90% 0%, rgba(96,165,250,.20), transparent 55%),
-                radial-gradient(900px 700px at 50% 120%, rgba(245,158,11,.12), transparent 55%),
-                var(--bg);
-            color:var(--text);
-            position:relative;
-            overflow-x:hidden;
-        }
-
-        body::before{
-            content:"";
-            position:fixed;
-            inset:0;
-            background-image: var(--bgImg);
-            background-size: cover;
-            background-position: center;
-            background-repeat:no-repeat;
-            opacity: .50;
-            z-index:-2;
-            pointer-events:none;
-        }
-        body::after{
-            content:"";
-            position:fixed;
-            inset:0;
-            background: rgba(11,15,23,.55);
-            z-index:-1;
-            pointer-events:none;
-        }
-
-        a{color:var(--accent2); text-decoration:none}
-        a:hover{text-decoration:underline}
-
-        /* En üst büyük çağrı */
-        .heroWrap{width:100%; padding:18px 16px 0;}
-        .hero{
-            max-width: var(--max);
-            margin:0 auto;
-            border:1px solid var(--line);
-            background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding:16px 16px;
-            text-align:center;
-        }
-        .hero .h0{
-            margin:0;
-            font-size:16px;
-            line-height:1.35;
-            font-weight:1000;
-        }
-        @media(min-width:720px){ .hero .h0{font-size:20px;} }
-        .hero b{color:var(--accent)}
-
-        /* Banner */
-        .bannerWrap{width:100%; padding:12px 12px 0;}
-        .banner{
-            max-width: var(--max);
-            margin:0 auto;
-            border:1px solid var(--line);
-            background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            overflow:hidden;
-        }
-        .bannerInner{
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap:12px;
-            padding:14px 14px;
-        }
-        .bannerLogo{
-            width: auto;
-            height: 90px; /* Resim boyutu ideal seviyeye küçültüldü */
-            max-width: 100%;
-            object-fit: contain;
-            display: block;
-            filter: drop-shadow(0 10px 18px rgba(0,0,0,.35));
-        }
-
-        /* YENI EKLENEN KISIMLAR (CTA, TOPBAR, WRAP, BRAND VS.) */
-        .cta{
-            display:inline-flex; gap:8px; align-items:center; justify-content:center;
-            padding:10px 14px;
-            border-radius: 12px;
-            border:1px solid rgba(34,197,94,.45);
-            background: rgba(34,197,94,.16);
-            color: var(--text);
-            font-weight:900;
-            font-size:12px;
-            cursor:pointer;
-            transition: transform .08s ease, background .2s ease;
-            white-space:nowrap;
-            flex-shrink: 0;
-        }
-        .cta:hover{background: rgba(34,197,94,.22)}
-        .cta:active{transform: scale(.99)}
-        .cta a{color:inherit; text-decoration:none}
-
-        .wrap{max-width:var(--max); margin:0 auto; padding:14px 16px 20px}
-
-        .topbar{
-            display:flex; gap:14px; align-items:center; justify-content:space-between;
-            padding:16px 18px;
-            border:1px solid var(--line);
-            background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            position:sticky; top:12px; z-index:20; backdrop-filter: blur(10px);
-            margin-top:12px;
-        }
-        .brand{display:flex; gap:12px; align-items:center}
-        .logoBox{
-            width:44px;height:44px;border-radius:14px;
-            border:1px solid rgba(255,255,255,.10);
-            background: rgba(255,255,255,.05);
-            display:grid; place-items:center;
-            overflow:hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,.22);
-            flex:0 0 auto;
-        }
-        .logoBox img{
-            width:100%; height:100%;
-            object-fit:cover; display:block;
-        }
-        .brand h1{font-size:16px; margin:0; line-height:1.1}
-        .brand p{margin:2px 0 0; font-size:12px; color:var(--muted)}
-        .right{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end;}
-        .pill{
-            border:1px solid var(--line);
-            background: rgba(255,255,255,.04);
-            padding:8px 10px;
-            border-radius: 999px;
-            font-size:12px;
-            color:var(--muted);
-            display:flex; gap:8px; align-items:center;
-        }
-        .btn{
-            border:1px solid rgba(34,197,94,.35);
-            background: rgba(34,197,94,.12);
-            color: var(--text);
-            padding:10px 12px;
-            border-radius: 12px;
-            font-weight:900;
-            font-size:12px;
-            display:flex; gap:8px; align-items:center;
-            cursor:pointer;
-            transition: transform .08s ease, background .2s ease;
-            user-select:none;
-            white-space:nowrap;
-        }
-        .btn:hover{background: rgba(34,197,94,.16)}
-        .btn:active{transform: scale(.98)}
-
-        .grid{
-            display:grid;
-            grid-template-columns: 1fr;
-            gap:14px;
-            margin-top:18px;
-        }
-        @media(min-width:980px){ .grid{grid-template-columns: 1fr 1fr;} }
-
-        /* Panel için ekstra karanlık modern glow efektleri */
-        .glass-panel {
-            background: linear-gradient(145deg, rgba(20,20,20,0.65) 0%, rgba(10,10,10,0.85) 100%);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-        }
-
-        /* Liste elemanları için hover efekti */
-        .winner-card:hover .gc-badge {
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-            border-color: rgba(255, 215, 0, 0.5);
-        }
-        
-        .winner-card:hover .cash-badge {
-            box-shadow: 0 0 15px rgba(74, 222, 128, 0.2);
-            border-color: rgba(74, 222, 128, 0.4);
-        }
-
-        /* Kaydırma çubuğu */
-        .custom-scroll::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scroll::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-        }
-        .custom-scroll::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-        }
-        .custom-scroll::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
+        :root { color-scheme:dark; --bg:#101113; --panel:#191b1e; --line:#303237; --text:#f2f4f5; --muted:#a9afb8; --green:#5ee39a; --gold:#f9d363; }
+        * { box-sizing:border-box; letter-spacing:0; }
+        body { margin:0; background:var(--bg); color:var(--text); font-family:Inter,"Segoe UI",Arial,sans-serif; font-size:14px; line-height:1.5; }
+        a { color:var(--green); text-decoration:none; }
+        a:hover { text-decoration:underline; }
+        .shell { max-width:1180px; margin:auto; padding:0 24px; }
+        .brandbar { border-bottom:1px solid var(--line); }
+        .brandbar .shell { min-height:84px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+        .brand { display:flex; align-items:center; gap:16px; min-width:0; }
+        .brand img { width:140px; height:54px; object-fit:contain; }
+        .brand strong { display:block; font-size:16px; }
+        .brand span { color:var(--muted); font-size:12px; }
+        .join { padding:10px 16px; background:#153825; border:1px solid #326344; border-radius:8px; font-weight:700; white-space:nowrap; }
+        .intro { padding:32px 0 24px; }
+        .eyebrow { color:var(--green); font-size:12px; font-weight:700; margin:0 0 8px; }
+        h1 { font-size:30px; line-height:1.2; margin:0; }
+        .intro-row { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+        .updated { font-size:12px; color:var(--muted); }
+        .updated span { color:var(--text); white-space:nowrap; }
+        .conditions { margin:16px 0 0; color:var(--muted); max-width:800px; }
+        .rules { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+        .rule { padding:16px 12px; border-right:1px solid var(--line); }
+        .rule:first-child { padding-left:0; }
+        .rule:last-child { border-right:0; }
+        .rule b { display:block; font-size:19px; color:var(--green); white-space:nowrap; }
+        .rule:first-child b { color:var(--gold); }
+        .rule span { color:var(--muted); font-size:12px; display:block; }
+        .results-top { margin:32px 0 16px; display:flex; gap:16px; align-items:center; justify-content:space-between; }
+        h2 { margin:0; font-size:18px; }
+        #totals { color:var(--muted); font-size:12px; text-align:right; }
+        #champion { margin-bottom:28px; }
+        .champion-card { display:flex; gap:24px; align-items:center; padding:22px 24px; border:1px solid #65532d; border-radius:8px; background:#211e17; }
+        .champion-card .prize { font-size:30px; color:var(--gold); }
+        .champion-card .player-name { font-size:20px; }
+        .champion-label { color:var(--gold); font-size:11px; font-weight:700; margin-bottom:6px; }
+        .columns { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:32px; }
+        .column-title { padding-bottom:12px; margin-bottom:16px; border-bottom:1px solid var(--line); }
+        .column-title i { color:var(--green); margin-right:8px; }
+        .group { margin-bottom:24px; }
+        .group-head { display:flex; align-items:center; justify-content:space-between; gap:12px; border-bottom:1px solid #294234; padding-bottom:8px; margin-bottom:10px; }
+        .group-head h3 { font-size:15px; margin:0; color:var(--green); }
+        .group-head small { font-size:11px; color:var(--muted); white-space:nowrap; }
+        .description { font-size:11px; color:var(--muted); margin:0 0 10px; }
+        .winner-card { display:flex; align-items:center; gap:14px; min-height:62px; padding:10px 12px; margin-bottom:6px; border-radius:8px; background:var(--panel); }
+        .winner-card:hover { background:#20252a; }
+        .prize { font-size:17px; font-weight:800; color:var(--green); white-space:nowrap; flex:none; }
+        .winner-card .prize { width:148px; padding:8px; border:1px solid #34543f; border-radius:20px; background:#0c1610; text-align:center; }
+        .prize i { font-size:14px; margin-right:6px; }
+        .player { min-width:0; }
+        .player-name { font-weight:750; font-size:14px; overflow-wrap:anywhere; }
+        .meta { display:flex; gap:10px; flex-wrap:wrap; color:var(--muted); font-size:11px; margin-top:3px; font-variant-numeric:tabular-nums; }
+        .meta i { margin-right:4px; }
+        .empty { color:var(--muted); padding:12px 0; }
+        footer { border-top:1px solid var(--line); padding:20px 0; margin-top:24px; color:var(--muted); font-size:12px; }
+        footer .shell { display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; }
+        @media(max-width:1000px) { .columns { gap:20px; } .rules { grid-template-columns:repeat(3,minmax(0,1fr)); } .rule:nth-child(3) { border-right:0; } .rule:nth-child(n+4) { border-top:1px solid var(--line); } .rule:first-child { padding-left:12px; } .winner-card { gap:10px; } .winner-card .prize { width:120px; font-size:15px; } }
+        @media(max-width:760px) { .columns { grid-template-columns:1fr; } .brandbar .shell { flex-wrap:wrap; padding-top:12px; padding-bottom:12px; } .brand img { width:100px; } .brand strong { font-size:14px; } .join { font-size:12px; } .intro-row { align-items:flex-start; flex-direction:column; gap:10px; } h1 { font-size:26px; } .champion-card { gap:16px; padding:18px; } .champion-card .prize { font-size:24px; } .champion-card .player-name { font-size:17px; } .winner-card .prize { width:148px; font-size:17px; } }
+        @media(max-width:430px) { .shell { padding-left:16px; padding-right:16px; } .rules { grid-template-columns:repeat(2,minmax(0,1fr)); } .rule:nth-child(3) { border-right:1px solid var(--line); } .rule:nth-child(even) { border-right:0; } .rule:nth-child(n+3) { border-top:1px solid var(--line); } .rule b { font-size:18px; } .champion-card { align-items:flex-start; flex-direction:column; gap:10px; } .winner-card { align-items:flex-start; flex-direction:column; gap:8px; } .winner-card .prize { width:auto; padding:5px 14px; } .results-top { align-items:flex-start; flex-direction:column; gap:5px; } #totals { text-align:left; } }
     </style>
 </head>
 <body>
-
-    <!-- Üst Başlık (Hero) -->
-    <div class="heroWrap">
-        <div class="hero">
-            <p class="h0 text-lg sm:text-xl">GTA 5 GRAND RP'YE <a href="https://gta5grand.com/?ref=15077" target="_blank" class="text-green-500 hover:text-green-400 transition-colors underline decoration-2 underline-offset-4">BİZİM LİNKİMİZDEN KAYIT OL</a> ! <span class="text-green-500">100 GC & 2 MİLYON DOLAR</span> KAZAN!</p>
-            <p class="text-[13px] md:text-sm mt-3 text-gray-300 font-medium tracking-wide">⭐🏆 Ödüller her hafta <span class="text-yellow-500">GTA 5 Grand RP</span> içinde <a href="https://gta5grand.com/?ref=15077" target="_blank" class="text-green-500 hover:text-green-400 transition-colors underline decoration-1 underline-offset-2">bizim linkimizden kayıt olmuş</a>, <span class="text-green-500">25 - 100 saat</span> oynayan oyuncular arasından <span class="text-yellow-500">rastgele</span> dağıtılmaktadır 🎲🔥</p>
-            <p class="text-[14.5px] md:text-[16px] mt-3 text-white font-black tracking-wide drop-shadow-md">
-                🤑💸 Oyuna <a href="https://gta5grand.com/?ref=15077" target="_blank" class="text-green-400 hover:text-green-300 transition-colors underline decoration-2 underline-offset-4">bizim linkimizden kayıt olup</a> level 5 olan <span class="text-yellow-400">HERKES 5 MİLYON DOLAR</span> kazanacak! 🚀💰
-            </p>
+    <header class="brandbar"><div class="shell">
+        <div class="brand"><img src="https://static.wixstatic.com/media/7f58da_28e78ada1e3745538b9d9a578583460d~mv2.png" alt="DNZY"><div><strong>DNZY Ailesi</strong><span>Grand RP · Haftalık ödüller</span></div></div>
+        <a class="join" href="https://gta5grand.com/?ref=15077" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Kayıt ol</a>
+    </div></header>
+    <main class="shell">
+        <section class="intro">
+            <p class="eyebrow">GTA 5 GRAND RP</p>
+            <div class="intro-row"><h1>Haftalık Para Ödülleri</h1><div class="updated">Son güncelleme: <span id="last-updated-topbar">04.09.2026 03:46</span></div></div>
+            <p class="conditions"><a href="https://gta5grand.com/?ref=15077" target="_blank" rel="noopener">Bizim linkimizden kayıt ol</a>, DNZY Ailesi'ne katıl ve haftada en az 25 saat oyna. Her oyuncu yalnızca bir para ödülü alır.</p>
+        </section>
+        <section class="rules" aria-label="Ödül tablosu">
+            <div class="rule"><b>$10.000.000</b><span>En çok saat · 1 kişi</span></div>
+            <div class="rule"><b>$5.000.000</b><span>100+ saat · 1 kişi</span></div>
+            <div class="rule"><b>$3.500.000</b><span>100+ saat · 5 kişi</span></div>
+            <div class="rule"><b>$2.500.000</b><span>25+ saat · 5 kişi</span></div>
+            <div class="rule"><b>$1.000.000</b><span>Kalan linkli 25+ üyeler</span></div>
+            <div class="rule"><b>$500.000</b><span>Link dışı · 5 aile üyesi</span></div>
+        </section>
+        <div class="results-top"><h2>Kazananlar</h2><span id="totals"></span></div>
+        <section id="champion" aria-label="En çok saat ödülü"></section>
+        <div class="columns">
+            <section><h2 class="column-title"><i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i>Büyük Ödüller</h2><div id="major-winners-list"></div></section>
+            <section><h2 class="column-title"><i class="fa-solid fa-users" aria-hidden="true"></i>Katılım ve Aile Ödülleri</h2><div id="participation-winners-list"></div></section>
         </div>
-    </div>
-
-    <!-- Banner ve Logo -->
-    <div class="bannerWrap">
-        <div class="banner">
-            <div class="bannerInner" style="justify-content: center; flex-wrap: nowrap; overflow: hidden; gap: 8px;">
-                <img class="bannerLogo" src="https://raw.githubusercontent.com/DNZYDeniz/gtacheatsdnzy/main/7f58da_28e78ada1e3745538b9d9a578583460d~mv2.png" alt="DNZY Logo">
-                <a href="https://gta5grand.com/?ref=15077" target="_blank" class="cta">🚀 GTA 5 GRAND RP KAYIT OL</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Wrap (Topbar ve Ana Panel) -->
-    <div class="wrap">
-        
-        <!-- YENİ EKLENEN TOPBAR -->
-        <div class="topbar">
-            <div class="brand">
-                <div class="logoBox">
-                    <span style="font-size: 24px; font-weight: 900; font-style: italic; color: #60a5fa;">D</span>
-                </div>
-                <div>
-                    <h1>DNZY Ailesi — Haftalık Ödüller</h1>
-                    <p>Grand Roleplay • GC & Para Kazananlar • Güncellenebilir tablo</p>
-                </div>
-            </div>
-            <div class="right">
-                <span class="pill"><i class="fa-regular fa-calendar-check text-green-400"></i> Son Guncelleme: <span id="last-updated-topbar" class="text-green-300">28.08.2026 08:05</span></span>
-                <a href="https://gta5grand.com/?ref=15077" target="_blank" class="pill hover:bg-white/10 transition-colors cursor-pointer"><i class="fa-solid fa-link text-neutral-400"></i> Kayıt Linki</a>
-                <a href="https://www.youtube.com/watch?v=hGkHloPcEMo" target="_blank" class="btn"><i class="fa-solid fa-thumbtack text-red-400"></i> Kurallara Git</a>
-            </div>
-        </div>
-
-        <!-- Ana Panel Konteyneri -->
-        <div class="glass-panel w-full rounded-2xl border border-neutral-800 overflow-hidden relative mt-6">
-            
-            <!-- Arkaplan Dekoratif Işıklar -->
-            <div class="absolute top-0 left-1/4 w-1/2 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50"></div>
-
-            <!-- Panel Başlığı -->
-            <div class="bg-black/40 p-6 text-center border-b border-neutral-800/80">
-                <h1 class="text-3xl font-black text-white tracking-widest uppercase drop-shadow-[0_2px_10px_rgba(255,255,255,0.1)]">
-                    <i class="fa-solid fa-trophy text-yellow-500 mr-3 animate-pulse"></i> HAFTALIK KAZANANLAR
-                </h1>
-                <p class="text-neutral-400 text-sm mt-2 font-medium tracking-wide">Ödüller en kısa sürede hesaplara aktarılacaktır.</p>
-                <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-700 bg-black/40 text-xs md:text-sm text-neutral-200 font-semibold">
-                    <i class="fa-regular fa-calendar-check text-green-400"></i>
-                    <span>Son Guncelleme:</span>
-                    <span id="last-updated-text" class="text-green-300">28.08.2026 08:05</span>
-                </div>
-            </div>
-
-            <!-- Kazananlar İçeriği (İki Kolon) -->
-            <div class="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
-                
-                <!-- SOL KOLON: GC KAZANANLARI -->
-                <div class="space-y-4">
-                    <div class="flex items-center gap-3 border-b border-neutral-800 pb-3 mb-5">
-                        <i class="fa-solid fa-crown text-yellow-500 text-xl"></i>
-                        <h2 class="text-xl font-bold text-gray-200 tracking-wide uppercase">GC Kazananlar</h2>
-                    </div>
-                    <p class="text-xs text-neutral-500 -mt-2 mb-4 leading-relaxed">
-                        <span class="text-neutral-400 font-semibold">Not (75 GC):</span>
-                        100+ saat havuzuna göre; gerekirse 85+ saat eşiği kullanılabilir.
-                    </p>
-                    <div class="space-y-3" id="gc-winners-list">
-                        <!-- Javascript ile doldurulacak -->
-                    </div>
-                </div>
-
-                <!-- SAĞ KOLON: OYUN PARASI KAZANANLARI -->
-                <div class="space-y-4">
-                    <div class="flex items-center gap-3 border-b border-neutral-800 pb-3 mb-5">
-                        <i class="fa-solid fa-sack-dollar text-green-400 text-xl"></i>
-                        <h2 class="text-xl font-bold text-gray-200 tracking-wide uppercase">Nakit Kazananlar</h2>
-                    </div>
-                    
-                    <div class="space-y-3" id="cash-winners-list">
-                        <!-- Javascript ile doldurulacak -->
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
+    </main>
+    <footer><div class="shell"><span>DNZY Ailesi · Oyun içi para ödülleri</span><span>Son güncelleme: <span id="last-updated-text">04.09.2026 03:46</span></span></div></footer>
     <script>
-        // --- VERİLER ---
-        const gcWinners = [
-  { id: "566105", name: "DELI GURDAL", amount: "100 GC", playtime: "155.4" },
-  { id: "566125", name: "GRANDPA SHELBY", amount: "75 GC", playtime: "137.32" },
-  { id: "565995", name: "ENZO CROSS", amount: "75 GC", playtime: "130.09" },
-  { id: "512826", name: "ANGELINA ALVAREZZ", amount: "75 GC", playtime: "116.56" },
-  { id: "546618", name: "UUR DOGAN", amount: "75 GC", playtime: "113.33" },
-  { id: "541281", name: "ARES BELLINI", amount: "75 GC", playtime: "113.5" },
-  { id: "452322", name: "MEMOO YVZ", amount: "50 GC", playtime: "122.46" },
-  { id: "504591", name: "ATAKUM SCOFIELD", amount: "50 GC", playtime: "99.41" },
-  { id: "556994", name: "HAMZA WALKER", amount: "50 GC", playtime: "86.43" },
-  { id: "534704", name: "MISTER MUHTARR", amount: "50 GC", playtime: "69.17" },
-  { id: "550933", name: "BILAL YRL", amount: "50 GC", playtime: "62.04" },
-];
-
         const cashWinners = [
-  { id: "566105", name: "DELI GURDAL", amount: "5 Milyon", playtime: "155.4", bonus: true },
-  { id: "551549", name: "UFK DGN", amount: "5 Milyon", playtime: "109.5" },
-  { id: "521219", name: "DAPOLYON KAPLAN", amount: "1 Milyon", playtime: "95.47" },
-  { id: "541429", name: "JEYS ALVAREZZZ", amount: "1 Milyon", playtime: "91.11" },
-  { id: "387011", name: "JAYSWIFTH FOROZVERK", amount: "1 Milyon", playtime: "78.14" },
-  { id: "452284", name: "NICOLE ISABELY", amount: "1 Milyon", playtime: "73.55" },
-  { id: "294322", name: "KUTAY ADIYAMAN", amount: "1 Milyon", playtime: "73.11" },
-  { id: "105998", name: "ONUR GUNAY", amount: "1 Milyon", playtime: "72.04" },
-  { id: "559923", name: "BARONES NRG", amount: "1 Milyon", playtime: "70.15" },
-  { id: "562787", name: "DOUEE FEDERRALL", amount: "1 Milyon", playtime: "67.53" },
-  { id: "565413", name: "FURKAN DNZY", amount: "1 Milyon", playtime: "56.14" },
-  { id: "551949", name: "ACE RYDERS", amount: "1 Milyon", playtime: "56.03" },
-  { id: "569283", name: "FERID HUSEYNOWV", amount: "1 Milyon", playtime: "46.57" },
-  { id: "567997", name: "CANER PLATINIUMM", amount: "1 Milyon", playtime: "45.21" },
-  { id: "484935", name: "HAMIDO CROSS", amount: "1 Milyon", playtime: "41.23" },
-  { id: "565195", name: "ARDA VEGAS", amount: "1 Milyon", playtime: "39.05" },
-  { id: "571560", name: "SECIT HOLLOWAY", amount: "1 Milyon", playtime: "34.27" },
-  { id: "538516", name: "HAMZA LYNX", amount: "1 Milyon", playtime: "33.04" },
-  { id: "559827", name: "ALCAPONE DIAZZ", amount: "1 Milyon", playtime: "30.51" },
-  { id: "557290", name: "CASTIEL DARKNESS", amount: "1 Milyon", playtime: "29.43" },
-  { id: "316608", name: "ZAKO DARK", amount: "500 Bin", playtime: "55.11", family: true },
-  { id: "224200", name: "MAYK STARK", amount: "500 Bin", playtime: "38.51", family: true },
-  { id: "362373", name: "LEVO PRADA", amount: "500 Bin", playtime: "36.56", family: true },
-  { id: "471927", name: "ST SKAYLEX", amount: "500 Bin", playtime: "36.46", family: true },
-  { id: "69120", name: "RECO DARK", amount: "500 Bin", playtime: "25.21", family: true },
+  { id: "566105", name: "DELI GURDAL", amount: "10 Milyon", playtime: "140.17", bonus: true },
+  { id: "566125", name: "GRANDPA SHELBY", amount: "5 Milyon", playtime: "100.04" },
+  { id: "565995", name: "ENZO CROSS", amount: "3,5 Milyon", playtime: "114.26" },
+  { id: "512826", name: "SAMET FOXX", amount: "3,5 Milyon", playtime: "100.31" },
+  { id: "556994", name: "HAMZA CAKIRBEYLII", amount: "3,5 Milyon", playtime: "95.37" },
+  { id: "452322", name: "MEMOO YVZ", amount: "3,5 Milyon", playtime: "90.08" },
+  { id: "567581", name: "STORMY FEDEROV", amount: "2,5 Milyon", playtime: "56.37" },
+  { id: "521219", name: "DAPOLYON KAPLAN", amount: "2,5 Milyon", playtime: "53.52" },
+  { id: "552554", name: "MERT BELLINI", amount: "2,5 Milyon", playtime: "43.15" },
+  { id: "551549", name: "UFK DGN", amount: "2,5 Milyon", playtime: "35.13" },
+  { id: "484935", name: "HAMIDO CROSS", amount: "2,5 Milyon", playtime: "30.57" },
+  { id: "294322", name: "KUTAY ADIYAMAN", amount: "1 Milyon", playtime: "79.51" },
+  { id: "546618", name: "UUR DOGAN", amount: "1 Milyon", playtime: "74.07" },
+  { id: "551949", name: "ACE RYDERS", amount: "1 Milyon", playtime: "56.49" },
+  { id: "541429", name: "JEYS ALVAREZZZ", amount: "1 Milyon", playtime: "55.19" },
+  { id: "534704", name: "MISTER MUHTARR", amount: "1 Milyon", playtime: "49.23" },
+  { id: "550806", name: "RAMON FOX", amount: "1 Milyon", playtime: "44.55" },
+  { id: "387011", name: "JAYSWIFTH FOROZVERK", amount: "1 Milyon", playtime: "41.34" },
+  { id: "559923", name: "BARONES SUPERB", amount: "1 Milyon", playtime: "34.12" },
+  { id: "567997", name: "CANERR PLATINIUMM", amount: "1 Milyon", playtime: "33.31" },
+  { id: "550933", name: "BILAL YRL", amount: "1 Milyon", playtime: "31.31" },
+  { id: "504591", name: "ATAKUM SCOFIELD", amount: "1 Milyon", playtime: "25.11" },
+  { id: "441233", name: "CRISTIANOO YUNUS", amount: "500 Bin", playtime: "55.32", family: true },
+  { id: "572200", name: "ESTORILIKA HAN", amount: "500 Bin", playtime: "43.33", family: true },
+  { id: "205179", name: "AHMET HILL", amount: "500 Bin", playtime: "42.53", family: true },
+  { id: "572864", name: "SALIHSLH YILDIZ", amount: "500 Bin", playtime: "33.41", family: true },
+  { id: "396745", name: "LINCOLN HENRUQUIE", amount: "500 Bin", playtime: "25.45", family: true },
 ];
-
-        // Kategori Açıklamaları Veritabanı
-        const categoryDescriptions = {
-            "5 Rastgele Aile Üyesi": "25+ saat, link disi (5 kisi)",
-            "5 Milyon Bonus": "En cok saat garanti (1 kisi)",
-            "100 GC": "100+ saat (1 kişi)",
-            "75 GC": "100+/90+ saat (5 kişi)",
-            "50 GC": "22+ saat (5 kişi)",
-            "5 Milyon": "80+ saat cekilisi (1 kisi)",
-            "1 Milyon": "25+saat oynayan tum linkli uyeler"
-        };
-
-        // --- HTML OLUŞTURUCU FONKSİYONLAR ---
-        
-        // GC Tasarımı: Siyah Buton + Sarı Kral Tacı + Beyaz Yazı
-        function renderGCWinners() {
-            const container = document.getElementById('gc-winners-list');
-            let html = '';
-            let currentCategory = '';
-            
-            gcWinners.forEach(winner => {
-                // Kategori Ayracı Ekleme
-                if (currentCategory !== winner.amount) {
-                    currentCategory = winner.amount;
-                    const desc = categoryDescriptions[currentCategory] || "";
-                    
-                    html += `
-                    <div class="flex items-center gap-3 mt-6 mb-3 first:mt-0">
-                        <div class="h-px bg-gradient-to-r from-yellow-500/0 via-yellow-500/30 to-yellow-500/0 flex-grow"></div>
-                        <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest px-3 py-1 bg-yellow-900/20 rounded border border-yellow-700/30 shadow-sm whitespace-nowrap text-center">
-                            ${currentCategory} <span class="text-yellow-200/60 ml-1 tracking-normal">| ${desc}</span>
-                        </span>
-                        <div class="h-px bg-gradient-to-r from-yellow-500/0 via-yellow-500/30 to-yellow-500/0 flex-grow"></div>
-                    </div>
-                    `;
-                }
-
-                // En yüksek ödül (100 GC) için ufak bir tasarım farkı yaratmak istersen border rengini altın yapabilirsin
-                const isTopPrize = winner.amount === "100 GC";
-                const borderClass = isTopPrize ? 'border-yellow-600/50 bg-yellow-900/10' : 'border-[#222] bg-[#111]';
-                const playtimeHtml = winner.playtime
-                    ? `<span class="ml-2 pl-2 border-l border-neutral-700 opacity-80 flex items-center"><i class="fa-regular fa-clock text-[10px] mr-1"></i>${winner.playtime} Saat</span>`
-                    : "";
-
-                html += `
-                <div class="winner-card flex items-center p-3 ${borderClass} rounded-xl hover:bg-[#1a1a1a] transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-0.5 cursor-default">
-                    
-                    <!-- GC Rozeti (Siyah Buton) -->
-                    <div class="gc-badge flex items-center justify-center gap-2 bg-black border border-[#333] rounded-full px-4 py-2 min-w-[100px] shadow-inner transition-all duration-300 shrink-0">
-                        <i class="fa-solid fa-crown text-[#FFD700] text-sm drop-shadow-md"></i>
-                        <span class="text-white font-bold text-sm tracking-wide whitespace-nowrap">${winner.amount}</span>
-                    </div>
-
-                    <!-- Kullanıcı Bilgisi -->
-                    <div class="flex flex-col ml-4 overflow-hidden">
-                        <span class="text-gray-100 font-bold tracking-wider text-sm truncate">${winner.name}</span>
-                        <span class="text-gray-500 text-xs font-mono mt-0.5 flex items-center">
-                            <i class="fa-solid fa-id-card text-[10px] mr-1 opacity-50"></i>ID: ${winner.id}
-                            ${playtimeHtml}
-                        </span>
-                    </div>
-                    
-                </div>
-                `;
-            });
-            container.innerHTML = html;
+        const categoryDescriptions = {"10 Milyon": "En cok saat yapan 1 kisi", "5 Milyon": "100+ saat | 1 kisi", "3,5 Milyon": "100+ saat; havuz yetersizse 90+ | 5 kisi", "2,5 Milyon": "25+ saat | 5 kisi | Yuksek saate oncelik", "1 Milyon": "25+ saat | Kalan linkli uyeler", "500 Bin": "25+ saat | Link disi 5 rastgele aile uyesi"};
+        const amounts = {"10 Milyon": 10000000, "5 Milyon": 5000000, "3,5 Milyon": 3500000, "2,5 Milyon": 2500000, "1 Milyon": 1000000, "500 Bin": 500000};
+        const money = value => "$" + value.toLocaleString("tr-TR");
+        function el(tag, className, text) {
+            const node = document.createElement(tag);
+            node.className = className;
+            if (text !== undefined) node.textContent = text;
+            return node;
         }
-
-        // Oyun Parası Tasarımı: Siyah Buton + Yeşil İkon + Beyaz Yazı (Tasarım bütünlüğü için)
-        function renderCashWinners() {
-            const container = document.getElementById('cash-winners-list');
-            let html = '';
-            let currentCategory = '';
-            
-            cashWinners.forEach(winner => {
-                const categoryKey = winner.family ? "5 Rastgele Aile Üyesi" : winner.bonus ? "5 Milyon Bonus" : winner.amount;
-                // Kategori Ayraci Ekleme
-                if (currentCategory !== categoryKey) {
-                    currentCategory = categoryKey;
-                    const desc = categoryDescriptions[currentCategory] || "";
-
-                    html += `
-                    <div class="flex items-center gap-3 mt-6 mb-3 first:mt-0">
-                        <div class="h-px bg-gradient-to-r from-green-500/0 via-green-500/30 to-green-500/0 flex-grow"></div>
-                        <span class="text-[10px] font-bold text-green-400 uppercase tracking-widest px-3 py-1 bg-green-900/20 rounded border border-green-700/30 shadow-sm whitespace-nowrap text-center">
-                            ${currentCategory} <span class="text-green-200/60 ml-1 tracking-normal">| ${desc}</span>
-                        </span>
-                        <div class="h-px bg-gradient-to-r from-green-500/0 via-green-500/30 to-green-500/0 flex-grow"></div>
-                    </div>
-                    `;
-                }
-
-                const isTopPrize = winner.amount === "5 Milyon";
-                const borderClass = isTopPrize ? 'border-green-800/40 bg-green-900/10' : 'border-[#222] bg-[#111]';
-                const playtimeHtml = winner.playtime
-                    ? `<span class="ml-2 pl-2 border-l border-neutral-700 opacity-80 flex items-center"><i class="fa-regular fa-clock text-[10px] mr-1"></i>${winner.playtime} Saat</span>`
-                    : "";
-
-                html += `
-                <div class="winner-card flex items-center p-3 ${borderClass} rounded-xl hover:bg-[#1a1a1a] transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-0.5 cursor-default">
-                    
-                    <!-- Nakit Rozeti (Siyah Buton) -->
-                    <div class="cash-badge flex items-center justify-center gap-2 bg-black border border-[#333] rounded-full px-4 py-2 min-w-[100px] shadow-inner transition-all duration-300 shrink-0">
-                        <i class="fa-solid fa-sack-dollar text-[#4ADE80] text-sm drop-shadow-md"></i>
-                        <span class="text-white font-bold text-sm tracking-wide whitespace-nowrap">${winner.amount}</span>
-                    </div>
-
-                    <!-- Kullanıcı Bilgisi -->
-                    <div class="flex flex-col ml-4 overflow-hidden">
-                        <span class="text-gray-100 font-bold tracking-wider text-sm truncate">${winner.name}</span>
-                        <span class="text-gray-500 text-xs font-mono mt-0.5 flex items-center">
-                            <i class="fa-solid fa-id-card text-[10px] mr-1 opacity-50"></i>ID: ${winner.id}
-                            ${playtimeHtml}
-                        </span>
-                    </div>
-                    
-                </div>
-                `;
-            });
-            container.innerHTML = html;
+        function playerInfo(winner, champion) {
+            const info = el("div", "player");
+            if (champion) info.append(el("div", "champion-label", "EN ÇOK SAAT YAPAN OYUNCU"));
+            info.append(el("div", "player-name", winner.name));
+            const meta = el("div", "meta");
+            meta.append(el("span", "", "ID: " + winner.id), el("span", "", winner.playtime + " Saat"));
+            info.append(meta);
+            return info;
         }
-
-        // Sayfa yüklendiğinde listeleri oluştur
-        document.addEventListener('DOMContentLoaded', () => {
-            renderGCWinners();
-            renderCashWinners();
-        });
+        function renderWinner(winner, champion=false) {
+            const card = el("article", champion ? "champion-card" : "winner-card");
+            card.dataset.playerId = winner.id;
+            card.dataset.amount = amounts[winner.amount];
+            const prize = el("div", "prize", money(amounts[winner.amount]));
+            card.append(prize, playerInfo(winner, champion));
+            return card;
+        }
+        function renderGroup(amount, containerId) {
+            const winners = cashWinners.filter(w => w.amount === amount);
+            if (!winners.length) return;
+            const group = el("section", "group");
+            group.dataset.category = amount;
+            const head = el("header", "group-head");
+            head.append(el("h3", "", amount === "500 Bin" ? "5 Rastgele Aile Üyesi" : money(amounts[amount])), el("small", "", winners.length + " kişi"));
+            group.append(head, el("p", "description", categoryDescriptions[amount]));
+            winners.forEach(w => group.append(renderWinner(w)));
+            document.getElementById(containerId).append(group);
+        }
+        cashWinners.filter(w => w.amount === "10 Milyon").forEach(w => document.getElementById("champion").append(renderWinner(w, true)));
+        ["5 Milyon", "3,5 Milyon", "2,5 Milyon"].forEach(a => renderGroup(a, "major-winners-list"));
+        ["1 Milyon", "500 Bin"].forEach(a => renderGroup(a, "participation-winners-list"));
+        document.getElementById("totals").textContent = cashWinners.length + " kazanan · " + money(cashWinners.reduce((sum,w) => sum + amounts[w.amount], 0)) + " toplam ödül";
+        if (!cashWinners.length) document.getElementById("champion").append(el("p", "empty", "Henüz çekiliş sonucu yayınlanmadı."));
     </script>
 </body>
 </html>
