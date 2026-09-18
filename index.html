@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>DNZY Ailesi | Haftalık Para Ödülleri</title>
-    <meta name="description" content="DNZY Ailesi Grand RP haftalık para ödülleri: en çok saat yapan oyuncuya 10 milyon, çekiliş ve katılım ödülleri.">
+    <title>DNZY Ailesi | Haftalık Ödüller</title>
+    <meta name="description" content="DNZY Ailesi Grand RP haftalık para, RP Ticket ve Top Quality Metal ödülleri.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { color-scheme:dark; --bg:#101113; --panel:#191b1e; --line:#303237; --text:#f2f4f5; --muted:#a9afb8; --green:#5ee39a; --gold:#f9d363; }
@@ -27,10 +27,12 @@
         .updated { font-size:12px; color:var(--muted); }
         .updated span { color:var(--text); white-space:nowrap; }
         .conditions { margin:16px 0 0; color:var(--muted); max-width:800px; }
-        .rules { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+        .rules { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
         .rule { padding:16px 12px; border-right:1px solid var(--line); }
         .rule:first-child { padding-left:0; }
         .rule:last-child { border-right:0; }
+        .rule:nth-child(4n) { border-right:0; }
+        .rule:nth-child(n+5) { border-top:1px solid var(--line); }
         .rule b { display:block; font-size:19px; color:var(--green); white-space:nowrap; }
         .rule:first-child b { color:var(--gold); }
         .rule span { color:var(--muted); font-size:12px; display:block; }
@@ -54,6 +56,7 @@
         .winner-card:hover { background:#20252a; }
         .prize { font-size:17px; font-weight:800; color:var(--green); white-space:nowrap; flex:none; }
         .winner-card .prize { width:148px; padding:8px; border:1px solid #34543f; border-radius:20px; background:#0c1610; text-align:center; }
+        .winner-card .prize.item { font-size:14px; }
         .prize i { font-size:14px; margin-right:6px; }
         .player { min-width:0; }
         .player-name { font-weight:750; font-size:14px; overflow-wrap:anywhere; }
@@ -62,9 +65,9 @@
         .empty { color:var(--muted); padding:12px 0; }
         footer { border-top:1px solid var(--line); padding:20px 0; margin-top:24px; color:var(--muted); font-size:12px; }
         footer .shell { display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; }
-        @media(max-width:1000px) { .columns { gap:20px; } .rules { grid-template-columns:repeat(3,minmax(0,1fr)); } .rule:nth-child(3) { border-right:0; } .rule:nth-child(n+4) { border-top:1px solid var(--line); } .rule:first-child { padding-left:12px; } .winner-card { gap:10px; } .winner-card .prize { width:120px; font-size:15px; } }
+        @media(max-width:1000px) { .columns { gap:20px; } .rules { grid-template-columns:repeat(2,minmax(0,1fr)); } .rule:nth-child(odd) { border-right:1px solid var(--line); } .rule:nth-child(even) { border-right:0; } .rule:nth-child(n+3) { border-top:1px solid var(--line); } .rule:first-child { padding-left:12px; } .winner-card { gap:10px; } .winner-card .prize { width:120px; font-size:15px; } }
         @media(max-width:760px) { .columns { grid-template-columns:1fr; } .brandbar .shell { flex-wrap:wrap; padding-top:12px; padding-bottom:12px; } .brand img { width:100px; } .brand strong { font-size:14px; } .join { font-size:12px; } .intro-row { align-items:flex-start; flex-direction:column; gap:10px; } h1 { font-size:26px; } .champion-card { gap:16px; padding:18px; } .champion-card .prize { font-size:24px; } .champion-card .player-name { font-size:17px; } .winner-card .prize { width:148px; font-size:17px; } }
-        @media(max-width:430px) { .shell { padding-left:16px; padding-right:16px; } .rules { grid-template-columns:repeat(2,minmax(0,1fr)); } .rule:nth-child(3) { border-right:1px solid var(--line); } .rule:nth-child(even) { border-right:0; } .rule:nth-child(n+3) { border-top:1px solid var(--line); } .rule b { font-size:18px; } .champion-card { align-items:flex-start; flex-direction:column; gap:10px; } .winner-card { align-items:flex-start; flex-direction:column; gap:8px; } .winner-card .prize { width:auto; padding:5px 14px; } .results-top { align-items:flex-start; flex-direction:column; gap:5px; } #totals { text-align:left; } }
+        @media(max-width:430px) { .shell { padding-left:16px; padding-right:16px; } .rule b { font-size:16px; white-space:normal; } .champion-card { align-items:flex-start; flex-direction:column; gap:10px; } .winner-card { align-items:flex-start; flex-direction:column; gap:8px; } .winner-card .prize { width:auto; padding:5px 14px; } .results-top { align-items:flex-start; flex-direction:column; gap:5px; } #totals { text-align:left; } }
     </style>
 </head>
 <body>
@@ -75,58 +78,52 @@
     <main class="shell">
         <section class="intro">
             <p class="eyebrow">GTA 5 GRAND RP</p>
-            <div class="intro-row"><h1>Haftalık Para Ödülleri</h1><div class="updated">Son güncelleme: <span id="last-updated-topbar">04.09.2026 03:46</span></div></div>
-            <p class="conditions"><a href="https://gta5grand.com/?ref=15077" target="_blank" rel="noopener">Bizim linkimizden kayıt ol</a>, DNZY Ailesi'ne katıl ve haftada en az 25 saat oyna. Her oyuncu yalnızca bir para ödülü alır.</p>
+            <div class="intro-row"><h1>Haftalık Ödüller</h1><div class="updated">Son güncelleme: <span id="last-updated-topbar">18.09.2026 20:24</span></div></div>
+            <p class="conditions"><a href="https://gta5grand.com/?ref=15077" target="_blank" rel="noopener">Bizim linkimizden kayıt ol</a>, DNZY Ailesi'ne katıl ve haftalık etkinliğe dahil ol. Her oyuncu çekilişte yalnızca bir ödül alır.</p>
         </section>
         <section class="rules" aria-label="Ödül tablosu">
-            <div class="rule"><b>$10.000.000</b><span>En çok saat · 1 kişi</span></div>
-            <div class="rule"><b>$5.000.000</b><span>100+ saat · 1 kişi</span></div>
-            <div class="rule"><b>$3.500.000</b><span>100+ saat · 5 kişi</span></div>
-            <div class="rule"><b>$2.500.000</b><span>25+ saat · 5 kişi</span></div>
-            <div class="rule"><b>$1.000.000</b><span>Kalan linkli 25+ üyeler</span></div>
-            <div class="rule"><b>$500.000</b><span>Link dışı · 5 aile üyesi</span></div>
+            <div class="rule"><b>$5.000.000</b><span>En çok saat · 1 kişi</span></div>
+            <div class="rule"><b>$4.000.000</b><span>100+ saat · 3 kişi</span></div>
+            <div class="rule"><b>$2.500.000</b><span>50+ saat · 3 kişi</span></div>
+            <div class="rule"><b>$1.000.000</b><span>35+ saat · 5 kişi</span></div>
+            <div class="rule"><b>$500.000</b><span>25+ saat · Kalan herkes</span></div>
+            <div class="rule"><b>RP Ticket</b><span>20+ saat · 3 kişi · Manuel</span></div>
+            <div class="rule"><b>Top Quality Metal</b><span>15+ saat · 3 kişi · Manuel</span></div>
+            <div class="rule"><b>$1.000.000</b><span>Yeni kayıt · Level 5 · Manuel garanti</span></div>
         </section>
         <div class="results-top"><h2>Kazananlar</h2><span id="totals"></span></div>
         <section id="champion" aria-label="En çok saat ödülü"></section>
         <div class="columns">
             <section><h2 class="column-title"><i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i>Büyük Ödüller</h2><div id="major-winners-list"></div></section>
-            <section><h2 class="column-title"><i class="fa-solid fa-users" aria-hidden="true"></i>Katılım ve Aile Ödülleri</h2><div id="participation-winners-list"></div></section>
+            <section><h2 class="column-title"><i class="fa-solid fa-users" aria-hidden="true"></i>Garanti ve Manuel Ödüller</h2><div id="participation-winners-list"></div></section>
         </div>
     </main>
-    <footer><div class="shell"><span>DNZY Ailesi · Oyun içi para ödülleri</span><span>Son güncelleme: <span id="last-updated-text">04.09.2026 03:46</span></span></div></footer>
+    <footer><div class="shell"><span>DNZY Ailesi · Haftalık ödüller</span><span>Son güncelleme: <span id="last-updated-text">18.09.2026 20:24</span></span></div></footer>
     <script>
-        const cashWinners = [
-  { id: "566105", name: "DELI GURDAL", amount: "10 Milyon", playtime: "140.17", bonus: true },
-  { id: "566125", name: "GRANDPA SHELBY", amount: "5 Milyon", playtime: "100.04" },
-  { id: "565995", name: "ENZO CROSS", amount: "3,5 Milyon", playtime: "114.26" },
-  { id: "512826", name: "SAMET FOXX", amount: "3,5 Milyon", playtime: "100.31" },
-  { id: "556994", name: "HAMZA CAKIRBEYLII", amount: "3,5 Milyon", playtime: "95.37" },
-  { id: "452322", name: "MEMOO YVZ", amount: "3,5 Milyon", playtime: "90.08" },
-  { id: "567581", name: "STORMY FEDEROV", amount: "2,5 Milyon", playtime: "56.37" },
-  { id: "521219", name: "DAPOLYON KAPLAN", amount: "2,5 Milyon", playtime: "53.52" },
-  { id: "552554", name: "MERT BELLINI", amount: "2,5 Milyon", playtime: "43.15" },
-  { id: "551549", name: "UFK DGN", amount: "2,5 Milyon", playtime: "35.13" },
-  { id: "484935", name: "HAMIDO CROSS", amount: "2,5 Milyon", playtime: "30.57" },
-  { id: "294322", name: "KUTAY ADIYAMAN", amount: "1 Milyon", playtime: "79.51" },
-  { id: "546618", name: "UUR DOGAN", amount: "1 Milyon", playtime: "74.07" },
-  { id: "551949", name: "ACE RYDERS", amount: "1 Milyon", playtime: "56.49" },
-  { id: "541429", name: "JEYS ALVAREZZZ", amount: "1 Milyon", playtime: "55.19" },
-  { id: "534704", name: "MISTER MUHTARR", amount: "1 Milyon", playtime: "49.23" },
-  { id: "550806", name: "RAMON FOX", amount: "1 Milyon", playtime: "44.55" },
-  { id: "387011", name: "JAYSWIFTH FOROZVERK", amount: "1 Milyon", playtime: "41.34" },
-  { id: "559923", name: "BARONES SUPERB", amount: "1 Milyon", playtime: "34.12" },
-  { id: "567997", name: "CANERR PLATINIUMM", amount: "1 Milyon", playtime: "33.31" },
-  { id: "550933", name: "BILAL YRL", amount: "1 Milyon", playtime: "31.31" },
-  { id: "504591", name: "ATAKUM SCOFIELD", amount: "1 Milyon", playtime: "25.11" },
-  { id: "441233", name: "CRISTIANOO YUNUS", amount: "500 Bin", playtime: "55.32", family: true },
-  { id: "572200", name: "ESTORILIKA HAN", amount: "500 Bin", playtime: "43.33", family: true },
-  { id: "205179", name: "AHMET HILL", amount: "500 Bin", playtime: "42.53", family: true },
-  { id: "572864", name: "SALIHSLH YILDIZ", amount: "500 Bin", playtime: "33.41", family: true },
-  { id: "396745", name: "LINCOLN HENRUQUIE", amount: "500 Bin", playtime: "25.45", family: true },
+        const rewardWinners = [
+  { id: "566105", name: "DELI GURDAL", amount: "5 Milyon", playtime: "149.05", bonus: true },
+  { id: "546618", name: "UUR DOGAN", amount: "4 Milyon", playtime: "135.4" },
+  { id: "551549", name: "UFK DGN", amount: "4 Milyon", playtime: "107.34" },
+  { id: "512826", name: "NURCAN FOXX", amount: "4 Milyon", playtime: "101.32" },
+  { id: "565995", name: "BURAK FOX", amount: "2,5 Milyon", playtime: "97.31" },
+  { id: "444626", name: "REBORT MIKAELSON", amount: "2,5 Milyon", playtime: "96.42" },
+  { id: "556994", name: "HAMZA CAKIRBEYLII", amount: "2,5 Milyon", playtime: "89.33" },
+  { id: "541281", name: "ARES HILL", amount: "1 Milyon", playtime: "98.13" },
+  { id: "573941", name: "ZIPKIN AHMET", amount: "1 Milyon", playtime: "97.1" },
+  { id: "294322", name: "KUTAY ADIYAMAN", amount: "1 Milyon", playtime: "82.39" },
+  { id: "452322", name: "WHITE PHANTOM", amount: "1 Milyon", playtime: "82.26" },
+  { id: "552554", name: "MERT KENNEDY", amount: "1 Milyon", playtime: "40.45" },
+  { id: "541429", name: "JEYS KENNEDY", amount: "500 Bin", playtime: "68.57" },
+  { id: "551949", name: "ACE RYDERS", amount: "500 Bin", playtime: "65.24" },
+  { id: "488535", name: "SERDAR SARSILMAZ", amount: "500 Bin", playtime: "58.42" },
+  { id: "572985", name: "SAMET HILL", amount: "500 Bin", playtime: "38.07" },
+  { id: "288021", name: "ISMAILSALIH YILDIZ", amount: "500 Bin", playtime: "35.14" },
+  { id: "559923", name: "BARONES SUPERB", amount: "500 Bin", playtime: "34.13" },
 ];
-        const categoryDescriptions = {"10 Milyon": "En cok saat yapan 1 kisi", "5 Milyon": "100+ saat | 1 kisi", "3,5 Milyon": "100+ saat; havuz yetersizse 90+ | 5 kisi", "2,5 Milyon": "25+ saat | 5 kisi | Yuksek saate oncelik", "1 Milyon": "25+ saat | Kalan linkli uyeler", "500 Bin": "25+ saat | Link disi 5 rastgele aile uyesi"};
-        const amounts = {"10 Milyon": 10000000, "5 Milyon": 5000000, "3,5 Milyon": 3500000, "2,5 Milyon": 2500000, "1 Milyon": 1000000, "500 Bin": 500000};
+        const categoryDescriptions = {"5 Milyon": "En cok saat yapan 1 kisi", "4 Milyon": "100+ saat | 3 kisi", "2,5 Milyon": "50+ saat | 3 kisi", "1 Milyon": "35+ saat | 5 kisi", "500 Bin": "25+ saat | Odul almayan herkes", "RP Ticket": "20+ saat | 3 kisi | Manuel teslim", "Top Quality Metal": "15+ saat | 3 kisi | Manuel teslim"};
+        const amounts = {"5 Milyon": 5000000, "4 Milyon": 4000000, "2,5 Milyon": 2500000, "1 Milyon": 1000000, "500 Bin": 500000};
         const money = value => "$" + value.toLocaleString("tr-TR");
+        const prizeLabel = amount => amounts[amount] ? money(amounts[amount]) : amount;
         function el(tag, className, text) {
             const node = document.createElement(tag);
             node.className = className;
@@ -145,27 +142,29 @@
         function renderWinner(winner, champion=false) {
             const card = el("article", champion ? "champion-card" : "winner-card");
             card.dataset.playerId = winner.id;
-            card.dataset.amount = amounts[winner.amount];
-            const prize = el("div", "prize", money(amounts[winner.amount]));
+            card.dataset.amount = winner.amount;
+            const prize = el("div", "prize", prizeLabel(winner.amount));
+            if (!amounts[winner.amount]) prize.classList.add("item");
             card.append(prize, playerInfo(winner, champion));
             return card;
         }
         function renderGroup(amount, containerId) {
-            const winners = cashWinners.filter(w => w.amount === amount);
+            const winners = rewardWinners.filter(w => w.amount === amount);
             if (!winners.length) return;
             const group = el("section", "group");
             group.dataset.category = amount;
             const head = el("header", "group-head");
-            head.append(el("h3", "", amount === "500 Bin" ? "5 Rastgele Aile Üyesi" : money(amounts[amount])), el("small", "", winners.length + " kişi"));
+            head.append(el("h3", "", prizeLabel(amount)), el("small", "", winners.length + " kişi"));
             group.append(head, el("p", "description", categoryDescriptions[amount]));
             winners.forEach(w => group.append(renderWinner(w)));
             document.getElementById(containerId).append(group);
         }
-        cashWinners.filter(w => w.amount === "10 Milyon").forEach(w => document.getElementById("champion").append(renderWinner(w, true)));
-        ["5 Milyon", "3,5 Milyon", "2,5 Milyon"].forEach(a => renderGroup(a, "major-winners-list"));
-        ["1 Milyon", "500 Bin"].forEach(a => renderGroup(a, "participation-winners-list"));
-        document.getElementById("totals").textContent = cashWinners.length + " kazanan · " + money(cashWinners.reduce((sum,w) => sum + amounts[w.amount], 0)) + " toplam ödül";
-        if (!cashWinners.length) document.getElementById("champion").append(el("p", "empty", "Henüz çekiliş sonucu yayınlanmadı."));
+        rewardWinners.filter(w => w.amount === "5 Milyon" && w.bonus).forEach(w => document.getElementById("champion").append(renderWinner(w, true)));
+        ["4 Milyon", "2,5 Milyon", "1 Milyon"].forEach(a => renderGroup(a, "major-winners-list"));
+        ["500 Bin", "RP Ticket", "Top Quality Metal"].forEach(a => renderGroup(a, "participation-winners-list"));
+        const cashTotal = rewardWinners.reduce((sum,w) => sum + (amounts[w.amount] || 0), 0);
+        document.getElementById("totals").textContent = rewardWinners.length + " kazanan · " + money(cashTotal) + " para ödülü";
+        if (!rewardWinners.length) document.getElementById("champion").append(el("p", "empty", "Henüz çekiliş sonucu yayınlanmadı."));
     </script>
 </body>
 </html>
