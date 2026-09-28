@@ -5,166 +5,198 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>DNZY Ailesi | Haftalık Ödüller</title>
     <meta name="description" content="DNZY Ailesi Grand RP haftalık para, RP Ticket ve Top Quality Metal ödülleri.">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { color-scheme:dark; --bg:#101113; --panel:#191b1e; --line:#303237; --text:#f2f4f5; --muted:#a9afb8; --green:#5ee39a; --gold:#f9d363; }
+        :root {
+            color-scheme:dark;
+            --void:#080a0c; --canvas:#0d0f12; --surface:#14171b; --raised:#191d22;
+            --line:rgba(255,255,255,.09); --line-strong:rgba(245,190,52,.40);
+            --text:#f7f7f4; --secondary:#c9cbd0; --muted:#858b95;
+            --gold:#f4c24f; --gold-soft:#ffe49a; --green:#42e884; --red:#ff575f;
+        }
         * { box-sizing:border-box; letter-spacing:0; }
-        body { margin:0; background:var(--bg); color:var(--text); font-family:Inter,"Segoe UI",Arial,sans-serif; font-size:14px; line-height:1.5; }
-        a { color:var(--green); text-decoration:none; }
-        a:hover { text-decoration:underline; }
-        .shell { max-width:1180px; margin:auto; padding:0 24px; }
-        .brandbar { border-bottom:1px solid var(--line); }
-        .brandbar .shell { min-height:84px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
-        .brand { display:flex; align-items:center; gap:16px; min-width:0; }
-        .brand img { width:140px; height:54px; object-fit:contain; }
-        .brand strong { display:block; font-size:16px; }
-        .brand span { color:var(--muted); font-size:12px; }
-        .join { padding:10px 16px; background:#153825; border:1px solid #326344; border-radius:8px; font-weight:700; white-space:nowrap; }
-        .intro { padding:32px 0 24px; }
-        .eyebrow { color:var(--green); font-size:12px; font-weight:700; margin:0 0 8px; }
-        h1 { font-size:30px; line-height:1.2; margin:0; }
-        .intro-row { display:flex; align-items:center; justify-content:space-between; gap:20px; }
-        .updated { font-size:12px; color:var(--muted); }
-        .updated span { color:var(--text); white-space:nowrap; }
-        .conditions { margin:16px 0 0; color:var(--muted); max-width:800px; }
-        .rules { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-        .rule { padding:16px 12px; border-right:1px solid var(--line); }
-        .rule:first-child { padding-left:0; }
-        .rule:last-child { border-right:0; }
-        .rule:nth-child(4n) { border-right:0; }
-        .rule:nth-child(n+5) { border-top:1px solid var(--line); }
-        .rule b { display:block; font-size:19px; color:var(--green); white-space:nowrap; }
-        .rule:first-child b { color:var(--gold); }
-        .rule span { color:var(--muted); font-size:12px; display:block; }
-        .results-top { margin:32px 0 16px; display:flex; gap:16px; align-items:center; justify-content:space-between; }
-        h2 { margin:0; font-size:18px; }
-        #totals { color:var(--muted); font-size:12px; text-align:right; }
-        #champion { margin-bottom:28px; }
-        .champion-card { display:flex; gap:24px; align-items:center; padding:22px 24px; border:1px solid #65532d; border-radius:8px; background:#211e17; }
-        .champion-card .prize { font-size:30px; color:var(--gold); }
+        html { background:var(--void); }
+        body { margin:0; background:radial-gradient(circle at 50% -180px,rgba(244,194,79,.13),transparent 420px),var(--canvas); color:var(--text); font-family:Inter,"Segoe UI",Arial,sans-serif; font-size:14px; line-height:1.5; }
+        a { color:inherit; text-decoration:none; }
+        .shell { width:min(1220px,calc(100% - 40px)); margin:0 auto; }
+        .brandbar { border-bottom:1px solid var(--line); background:rgba(8,10,12,.88); backdrop-filter:blur(16px); }
+        .brandbar .shell { min-height:78px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+        .brand { display:flex; align-items:center; gap:15px; min-width:0; }
+        .brand img { width:128px; height:48px; object-fit:contain; flex:none; }
+        .brand-copy strong { display:block; font-size:15px; font-weight:800; }
+        .brand-copy span { display:block; color:var(--muted); font-size:11px; }
+        .join { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:42px; padding:0 18px; border:1px solid rgba(66,232,132,.40); border-radius:7px; background:#123421; color:#dfffea; font-size:12px; font-weight:800; }
+        .join:hover { border-color:var(--green); background:#17442a; }
+        .intro { padding:38px 0 22px; }
+        .eyebrow { margin:0 0 8px; color:var(--gold); font-size:11px; font-weight:850; }
+        .intro-row { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; }
+        h1 { margin:0; font-size:31px; line-height:1.15; font-weight:850; }
+        .updated { color:var(--muted); font-size:11px; text-align:right; }
+        .updated span { display:block; color:var(--secondary); font-size:12px; font-variant-numeric:tabular-nums; }
+        .conditions { max-width:780px; margin:13px 0 0; color:var(--muted); font-size:13px; }
+        .conditions a { color:var(--gold-soft); font-weight:700; }
+
+        .rules { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+        .rule { position:relative; min-height:142px; overflow:hidden; padding:18px; border:1px solid var(--line); border-radius:7px; background:var(--surface); }
+        .rule::after { content:""; position:absolute; inset:auto 0 0; height:2px; background:var(--rule-color,var(--green)); opacity:.72; }
+        .rule.feature { grid-column:span 2; border-color:var(--line-strong); background:#18160f; --rule-color:var(--gold); }
+        .rule.manual { --rule-color:#8fa8ff; }
+        .rule.level { border-color:rgba(255,87,95,.34); --rule-color:var(--red); }
+        .rule-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+        .rule-icon { display:grid; place-items:center; width:38px; height:38px; flex:none; border:1px solid color-mix(in srgb,var(--rule-color,var(--green)) 40%,transparent); border-radius:7px; color:var(--rule-color,var(--green)); background:rgba(0,0,0,.28); font-size:17px; }
+        .rule-kicker { color:var(--secondary); font-size:11px; font-weight:800; }
+        .rule b { display:block; margin-top:14px; color:var(--green); font-size:24px; line-height:1; font-weight:900; white-space:nowrap; }
+        .rule.feature b { color:var(--gold); font-size:31px; }
+        .rule.manual b { color:var(--gold-soft); font-size:19px; white-space:normal; }
+        .rule.level b { color:var(--text); font-size:20px; }
+        .rule span { display:block; margin-top:8px; color:var(--muted); font-size:11px; }
+        .rule.feature span { color:#c9bea1; }
+        .manual-note { display:inline-flex; align-items:center; gap:6px; margin-top:9px; color:#aab2c2; font-size:10px; font-weight:700; }
+
+        .results-top { margin:38px 0 15px; display:flex; align-items:flex-end; justify-content:space-between; gap:20px; }
+        h2 { margin:0; font-size:19px; line-height:1.2; font-weight:850; }
+        .results-top p { margin:5px 0 0; color:var(--muted); font-size:12px; }
+        #totals { color:var(--secondary); font-size:11px; text-align:right; font-variant-numeric:tabular-nums; }
+        #champion { margin-bottom:22px; }
+        .champion-card { display:grid; grid-template-columns:76px 175px minmax(0,1fr); align-items:center; gap:20px; min-height:112px; padding:17px 22px; border:1px solid var(--line-strong); border-radius:7px; background:#19170f; }
+        .champion-crown { display:grid; place-items:center; width:66px; height:66px; border:1px solid rgba(244,194,79,.45); border-radius:50%; background:#0d0c08; color:var(--gold); font-size:28px; }
+        .champion-card .prize { color:var(--gold); font-size:27px; }
         .champion-card .player-name { font-size:20px; }
-        .champion-label { color:var(--gold); font-size:11px; font-weight:700; margin-bottom:6px; }
-        .columns { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:32px; }
-        .column-title { padding-bottom:12px; margin-bottom:16px; border-bottom:1px solid var(--line); }
-        .column-title i { color:var(--green); margin-right:8px; }
-        .group { margin-bottom:24px; }
-        .group-head { display:flex; align-items:center; justify-content:space-between; gap:12px; border-bottom:1px solid #294234; padding-bottom:8px; margin-bottom:10px; }
-        .group-head h3 { font-size:15px; margin:0; color:var(--green); }
-        .group-head small { font-size:11px; color:var(--muted); white-space:nowrap; }
-        .description { font-size:11px; color:var(--muted); margin:0 0 10px; }
-        .winner-card { display:flex; align-items:center; gap:14px; min-height:62px; padding:10px 12px; margin-bottom:6px; border-radius:8px; background:var(--panel); }
-        .winner-card:hover { background:#20252a; }
-        .prize { font-size:17px; font-weight:800; color:var(--green); white-space:nowrap; flex:none; }
-        .winner-card .prize { width:148px; padding:8px; border:1px solid #34543f; border-radius:20px; background:#0c1610; text-align:center; }
-        .winner-card .prize.item { font-size:14px; }
-        .prize i { font-size:14px; margin-right:6px; }
+        .champion-label { margin-bottom:5px; color:var(--gold); font-size:10px; font-weight:850; }
+        .columns { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:18px; align-items:start; }
+        .result-column { min-width:0; }
+        .column-title { display:flex; align-items:center; gap:9px; padding:0 2px 11px; margin-bottom:12px; border-bottom:1px solid var(--line); }
+        .column-title i { color:var(--gold); }
+        .group { margin-bottom:18px; }
+        .group-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:5px; padding:0 2px; }
+        .group-head h3 { margin:0; color:var(--text); font-size:13px; font-weight:850; }
+        .group-head small { color:var(--muted); font-size:10px; white-space:nowrap; }
+        .description { margin:0 2px 8px; color:var(--muted); font-size:10px; }
+        .winner-card { display:grid; grid-template-columns:142px minmax(0,1fr); align-items:center; gap:13px; min-height:58px; padding:8px 10px; margin-bottom:5px; border:1px solid rgba(255,255,255,.055); border-radius:6px; background:var(--surface); }
+        .winner-card:hover { border-color:rgba(255,255,255,.12); background:var(--raised); }
+        .prize { color:var(--green); font-size:16px; line-height:1.1; font-weight:900; white-space:nowrap; }
+        .winner-card .prize { display:flex; align-items:center; gap:8px; min-height:38px; padding:7px 10px; border:1px solid rgba(66,232,132,.26); border-radius:5px; background:#0c1811; }
+        .winner-card .prize.item { color:var(--gold-soft); border-color:rgba(244,194,79,.28); background:#19170e; font-size:12px; white-space:normal; }
+        .prize i { width:17px; flex:none; text-align:center; font-size:14px; }
         .player { min-width:0; }
-        .player-name { font-weight:750; font-size:14px; overflow-wrap:anywhere; }
-        .meta { display:flex; gap:10px; flex-wrap:wrap; color:var(--muted); font-size:11px; margin-top:3px; font-variant-numeric:tabular-nums; }
-        .meta i { margin-right:4px; }
-        .empty { color:var(--muted); padding:12px 0; }
-        footer { border-top:1px solid var(--line); padding:20px 0; margin-top:24px; color:var(--muted); font-size:12px; }
-        footer .shell { display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; }
-        @media(max-width:1000px) { .columns { gap:20px; } .rules { grid-template-columns:repeat(2,minmax(0,1fr)); } .rule:nth-child(odd) { border-right:1px solid var(--line); } .rule:nth-child(even) { border-right:0; } .rule:nth-child(n+3) { border-top:1px solid var(--line); } .rule:first-child { padding-left:12px; } .winner-card { gap:10px; } .winner-card .prize { width:120px; font-size:15px; } }
-        @media(max-width:760px) { .columns { grid-template-columns:1fr; } .brandbar .shell { flex-wrap:wrap; padding-top:12px; padding-bottom:12px; } .brand img { width:100px; } .brand strong { font-size:14px; } .join { font-size:12px; } .intro-row { align-items:flex-start; flex-direction:column; gap:10px; } h1 { font-size:26px; } .champion-card { gap:16px; padding:18px; } .champion-card .prize { font-size:24px; } .champion-card .player-name { font-size:17px; } .winner-card .prize { width:148px; font-size:17px; } }
-        @media(max-width:430px) { .shell { padding-left:16px; padding-right:16px; } .rule b { font-size:16px; white-space:normal; } .champion-card { align-items:flex-start; flex-direction:column; gap:10px; } .winner-card { align-items:flex-start; flex-direction:column; gap:8px; } .winner-card .prize { width:auto; padding:5px 14px; } .results-top { align-items:flex-start; flex-direction:column; gap:5px; } #totals { text-align:left; } }
+        .player-name { color:var(--text); font-size:13px; font-weight:800; overflow-wrap:anywhere; }
+        .meta { display:flex; gap:12px; flex-wrap:wrap; margin-top:3px; color:var(--muted); font-size:10px; font-variant-numeric:tabular-nums; }
+        .meta span::before { margin-right:5px; color:#656b74; font-family:"Font Awesome 6 Free"; font-weight:900; }
+        .meta span:first-child::before { content:"\f2c2"; }
+        .meta span:last-child::before { content:"\f017"; }
+        .empty { margin:0; padding:24px; border:1px solid var(--line); border-radius:7px; color:var(--muted); text-align:center; }
+        footer { margin-top:30px; border-top:1px solid var(--line); padding:20px 0; color:var(--muted); font-size:11px; }
+        footer .shell { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; }
+
+        @media(max-width:960px) {
+            .rules { grid-template-columns:repeat(2,minmax(0,1fr)); }
+            .rule.feature { grid-column:span 2; }
+            .columns { gap:12px; }
+            .winner-card { grid-template-columns:120px minmax(0,1fr); }
+        }
+        @media(max-width:720px) {
+            .shell { width:min(100% - 28px,1220px); }
+            .brandbar .shell { min-height:70px; }
+            .brand img { width:98px; height:42px; }
+            .brand-copy { display:none; }
+            .intro { padding-top:27px; }
+            .intro-row { align-items:flex-start; flex-direction:column; gap:11px; }
+            .updated { text-align:left; }
+            h1 { font-size:27px; }
+            .columns { grid-template-columns:1fr; }
+            .champion-card { grid-template-columns:58px minmax(0,1fr); gap:14px; }
+            .champion-crown { width:54px; height:54px; font-size:23px; }
+            .champion-card > .prize { grid-column:2; grid-row:1; align-self:end; font-size:23px; }
+            .champion-card > .player { grid-column:1 / -1; }
+            .results-top { align-items:flex-start; flex-direction:column; gap:7px; }
+            #totals { text-align:left; }
+        }
+        @media(max-width:470px) {
+            .rules { grid-template-columns:1fr; }
+            .rule.feature { grid-column:span 1; }
+            .rule { min-height:126px; }
+            .winner-card { grid-template-columns:1fr; gap:7px; }
+            .winner-card .prize { width:max-content; max-width:100%; min-height:33px; }
+            .join { min-height:40px; padding:0 14px; }
+        }
     </style>
 </head>
 <body>
     <header class="brandbar"><div class="shell">
-        <div class="brand"><img src="https://static.wixstatic.com/media/7f58da_28e78ada1e3745538b9d9a578583460d~mv2.png" alt="DNZY"><div><strong>DNZY Ailesi</strong><span>Grand RP · Haftalık ödüller</span></div></div>
-        <a class="join" href="https://gta5grand.com/?ref=15077" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Kayıt ol</a>
+        <div class="brand"><img src="https://static.wixstatic.com/media/7f58da_28e78ada1e3745538b9d9a578583460d~mv2.png" alt="DNZY"><div class="brand-copy"><strong>DNZY Ailesi</strong><span>Grand RP · Haftalık ödül programı</span></div></div>
+        <a class="join" href="https://gta5grand.com/?ref=15077" target="_blank" rel="noopener"><i class="fa-solid fa-user-plus" aria-hidden="true"></i>Kayıt ol</a>
     </div></header>
     <main class="shell">
         <section class="intro">
-            <p class="eyebrow">GTA 5 GRAND RP</p>
-            <div class="intro-row"><h1>Haftalık Ödüller</h1><div class="updated">Son güncelleme: <span id="last-updated-topbar">18.09.2026 20:24</span></div></div>
-            <p class="conditions"><a href="https://gta5grand.com/?ref=15077" target="_blank" rel="noopener">Bizim linkimizden kayıt ol</a>, DNZY Ailesi'ne katıl ve haftalık etkinliğe dahil ol. Her oyuncu çekilişte yalnızca bir ödül alır.</p>
+            <p class="eyebrow">DNZY HAFTALIK ÖDÜL PROGRAMI</p>
+            <div class="intro-row"><h1>Oyna, sıralamaya gir, ödülünü kazan.</h1><div class="updated">Son güncelleme<span id="last-updated-topbar">28.09.2026 17:36</span></div></div>
+            <p class="conditions"><a href="https://gta5grand.com/?ref=15077" target="_blank" rel="noopener">Bizim linkimizden kayıt ol</a>, oyun içinde DNZY Ailesi'ne katıl ve haftalık etkinliğe dahil ol. Her oyuncu çekilişte yalnızca bir ödül alır.</p>
         </section>
+
         <section class="rules" aria-label="Ödül tablosu">
-            <div class="rule"><b>$5.000.000</b><span>En çok saat · 1 kişi</span></div>
-            <div class="rule"><b>$4.000.000</b><span>100+ saat · 3 kişi</span></div>
-            <div class="rule"><b>$2.500.000</b><span>50+ saat · 3 kişi</span></div>
-            <div class="rule"><b>$1.000.000</b><span>35+ saat · 5 kişi</span></div>
-            <div class="rule"><b>$500.000</b><span>25+ saat · Kalan herkes</span></div>
-            <div class="rule"><b>RP Ticket</b><span>20+ saat · 3 kişi · Manuel</span></div>
-            <div class="rule"><b>Top Quality Metal</b><span>15+ saat · 3 kişi · Manuel</span></div>
-            <div class="rule"><b>$1.000.000</b><span>Yeni kayıt · Level 5 · Manuel garanti</span></div>
+            <article class="rule feature"><div class="rule-head"><div><div class="rule-kicker">EN ÇOK SAAT YAPAN</div><b>$3.500.000</b></div><div class="rule-icon"><i class="fa-solid fa-crown" aria-hidden="true"></i></div></div><span>Haftanın lideri · 1 kişi · Garanti ödül</span></article>
+            <article class="rule"><div class="rule-head"><div class="rule-kicker">100+ SAAT</div><div class="rule-icon"><i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i></div></div><b>$2.000.000</b><span>3 kişi · Kişi başı</span></article>
+            <article class="rule"><div class="rule-head"><div class="rule-kicker">50+ SAAT</div><div class="rule-icon"><i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i></div></div><b>$1.500.000</b><span>3 kişi · Kişi başı</span></article>
+            <article class="rule"><div class="rule-head"><div class="rule-kicker">35+ SAAT</div><div class="rule-icon"><i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i></div></div><b>$1.000.000</b><span>5 kişi · Kişi başı</span></article>
+            <article class="rule"><div class="rule-head"><div class="rule-kicker">25+ SAAT</div><div class="rule-icon"><i class="fa-solid fa-gift" aria-hidden="true"></i></div></div><b>$300.000</b><span>Ödül almayan herkese garanti</span></article>
+            <article class="rule manual"><div class="rule-head"><div class="rule-kicker">20+ SAAT</div><div class="rule-icon"><i class="fa-solid fa-ticket" aria-hidden="true"></i></div></div><b>RP TICKET</b><span>3 kişi · Kişi başı</span><div class="manual-note"><i class="fa-solid fa-hand" aria-hidden="true"></i>Manuel teslim edilir</div></article>
+            <article class="rule manual"><div class="rule-head"><div class="rule-kicker">15+ SAAT</div><div class="rule-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div></div><b>TOP QUALITY METAL</b><span>3 kişi · Kişi başı</span><div class="manual-note"><i class="fa-solid fa-hand" aria-hidden="true"></i>Manuel teslim edilir</div></article>
+            <article class="rule level"><div class="rule-head"><div class="rule-kicker">YENİ KAYIT</div><div class="rule-icon"><i class="fa-solid fa-angles-up" aria-hidden="true"></i></div></div><b>LEVEL 5 · $1.000.000</b><span>Yeni üyeye garanti · Manuel teslim</span></article>
         </section>
-        <div class="results-top"><h2>Kazananlar</h2><span id="totals"></span></div>
+
+        <div class="results-top"><div><h2>Bu Haftanın Kazananları</h2><p>Para ve eşya ödülleri kategori sırasına göre listelenir.</p></div><span id="totals"></span></div>
         <section id="champion" aria-label="En çok saat ödülü"></section>
         <div class="columns">
-            <section><h2 class="column-title"><i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i>Büyük Ödüller</h2><div id="major-winners-list"></div></section>
-            <section><h2 class="column-title"><i class="fa-solid fa-users" aria-hidden="true"></i>Garanti ve Manuel Ödüller</h2><div id="participation-winners-list"></div></section>
+            <section class="result-column"><h2 class="column-title"><i class="fa-solid fa-trophy" aria-hidden="true"></i>Büyük Para Ödülleri</h2><div id="major-winners-list"></div></section>
+            <section class="result-column"><h2 class="column-title"><i class="fa-solid fa-gift" aria-hidden="true"></i>Garanti ve Manuel Ödüller</h2><div id="participation-winners-list"></div></section>
         </div>
     </main>
-    <footer><div class="shell"><span>DNZY Ailesi · Haftalık ödüller</span><span>Son güncelleme: <span id="last-updated-text">18.09.2026 20:24</span></span></div></footer>
+    <footer><div class="shell"><span>DNZY Ailesi · Haftalık ödüller</span><span>Son güncelleme: <span id="last-updated-text">28.09.2026 17:36</span></span></div></footer>
     <script>
         const rewardWinners = [
-  { id: "566105", name: "DELI GURDAL", amount: "5 Milyon", playtime: "149.05", bonus: true },
-  { id: "546618", name: "UUR DOGAN", amount: "4 Milyon", playtime: "135.4" },
-  { id: "551549", name: "UFK DGN", amount: "4 Milyon", playtime: "107.34" },
-  { id: "512826", name: "NURCAN FOXX", amount: "4 Milyon", playtime: "101.32" },
-  { id: "565995", name: "BURAK FOX", amount: "2,5 Milyon", playtime: "97.31" },
-  { id: "444626", name: "REBORT MIKAELSON", amount: "2,5 Milyon", playtime: "96.42" },
-  { id: "556994", name: "HAMZA CAKIRBEYLII", amount: "2,5 Milyon", playtime: "89.33" },
-  { id: "541281", name: "ARES HILL", amount: "1 Milyon", playtime: "98.13" },
-  { id: "573941", name: "ZIPKIN AHMET", amount: "1 Milyon", playtime: "97.1" },
-  { id: "294322", name: "KUTAY ADIYAMAN", amount: "1 Milyon", playtime: "82.39" },
-  { id: "452322", name: "WHITE PHANTOM", amount: "1 Milyon", playtime: "82.26" },
-  { id: "552554", name: "MERT KENNEDY", amount: "1 Milyon", playtime: "40.45" },
-  { id: "541429", name: "JEYS KENNEDY", amount: "500 Bin", playtime: "68.57" },
-  { id: "551949", name: "ACE RYDERS", amount: "500 Bin", playtime: "65.24" },
-  { id: "488535", name: "SERDAR SARSILMAZ", amount: "500 Bin", playtime: "58.42" },
-  { id: "572985", name: "SAMET HILL", amount: "500 Bin", playtime: "38.07" },
-  { id: "288021", name: "ISMAILSALIH YILDIZ", amount: "500 Bin", playtime: "35.14" },
-  { id: "559923", name: "BARONES SUPERB", amount: "500 Bin", playtime: "34.13" },
+  { id: "566105", name: "DELI GURDAL", amount: "3,5 Milyon", playtime: "148.46", bonus: true },
+  { id: "546618", name: "UUR DOGAN", amount: "2 Milyon", playtime: "113.51" },
+  { id: "541281", name: "ARES HILL", amount: "2 Milyon", playtime: "105.3" },
+  { id: "573941", name: "ZIPKIN AHMET", amount: "2 Milyon", playtime: "103.33" },
+  { id: "444626", name: "REBORT MIKAELSON", amount: "1,5 Milyon", playtime: "125.47" },
+  { id: "512826", name: "NURCAN FOXX", amount: "1,5 Milyon", playtime: "116.48" },
+  { id: "551549", name: "UFK DGN", amount: "1,5 Milyon", playtime: "99.48" },
+  { id: "565995", name: "BURAK FOX", amount: "1 Milyon", playtime: "91.01" },
+  { id: "559923", name: "BARONES SUPERB", amount: "1 Milyon", playtime: "77.04" },
+  { id: "452322", name: "WHITE PHANTOM", amount: "1 Milyon", playtime: "62.22" },
+  { id: "294322", name: "KUTAY ADIYAMAN", amount: "1 Milyon", playtime: "58.05" },
+  { id: "353371", name: "BEDIRHAN LYNX", amount: "1 Milyon", playtime: "44.08" },
+  { id: "488535", name: "SERDAR SARSILMAZ", amount: "300 Bin", playtime: "78.37" },
+  { id: "551949", name: "ACE RYDERS", amount: "300 Bin", playtime: "53.02" },
+  { id: "541429", name: "JEYS KENNEDY", amount: "300 Bin", playtime: "34.52" },
+  { id: "572985", name: "SAMET HILL", amount: "300 Bin", playtime: "33.51" },
+  { id: "105998", name: "ONUR GUNAY", amount: "300 Bin", playtime: "32.54" },
+  { id: "288021", name: "ISMAILSALIH YILDIZ", amount: "300 Bin", playtime: "30.42" },
+  { id: "577620", name: "None", amount: "300 Bin", playtime: "29.15" },
+  { id: "552554", name: "MERT KENNEDY", amount: "300 Bin", playtime: "29.11" },
+  { id: "569017", name: "EWOLIS VEGAS", amount: "RP Ticket", playtime: "24.53" },
+  { id: "559331", name: "CRYZA YADZ", amount: "RP Ticket", playtime: "23.1" },
+  { id: "538516", name: "HAMZA KINGSLEY", amount: "RP Ticket", playtime: "22.24" },
+  { id: "565195", name: "ARDA VEGAS", amount: "Top Quality Metal", playtime: "19.13" },
 ];
-        const categoryDescriptions = {"5 Milyon": "En cok saat yapan 1 kisi", "4 Milyon": "100+ saat | 3 kisi", "2,5 Milyon": "50+ saat | 3 kisi", "1 Milyon": "35+ saat | 5 kisi", "500 Bin": "25+ saat | Odul almayan herkes", "RP Ticket": "20+ saat | 3 kisi | Manuel teslim", "Top Quality Metal": "15+ saat | 3 kisi | Manuel teslim"};
-        const amounts = {"5 Milyon": 5000000, "4 Milyon": 4000000, "2,5 Milyon": 2500000, "1 Milyon": 1000000, "500 Bin": 500000};
+        const categoryDescriptions = {"3,5 Milyon": "En cok saat yapan 1 kisi", "2 Milyon": "100+ saat | 3 kisi", "1,5 Milyon": "50+ saat | 3 kisi", "1 Milyon": "35+ saat | 5 kisi", "300 Bin": "25+ saat | Odul almayan herkes", "RP Ticket": "20+ saat | 3 kisi | Manuel teslim", "Top Quality Metal": "15+ saat | 3 kisi | Manuel teslim"};
+        const amounts = {"3,5 Milyon": 3500000, "2 Milyon": 2000000, "1,5 Milyon": 1500000, "1 Milyon": 1000000, "300 Bin": 300000};
         const money = value => "$" + value.toLocaleString("tr-TR");
         const prizeLabel = amount => amounts[amount] ? money(amounts[amount]) : amount;
-        function el(tag, className, text) {
-            const node = document.createElement(tag);
-            node.className = className;
-            if (text !== undefined) node.textContent = text;
-            return node;
-        }
-        function playerInfo(winner, champion) {
-            const info = el("div", "player");
-            if (champion) info.append(el("div", "champion-label", "EN ÇOK SAAT YAPAN OYUNCU"));
-            info.append(el("div", "player-name", winner.name));
-            const meta = el("div", "meta");
-            meta.append(el("span", "", "ID: " + winner.id), el("span", "", winner.playtime + " Saat"));
-            info.append(meta);
-            return info;
-        }
-        function renderWinner(winner, champion=false) {
-            const card = el("article", champion ? "champion-card" : "winner-card");
-            card.dataset.playerId = winner.id;
-            card.dataset.amount = winner.amount;
-            const prize = el("div", "prize", prizeLabel(winner.amount));
-            if (!amounts[winner.amount]) prize.classList.add("item");
-            card.append(prize, playerInfo(winner, champion));
-            return card;
-        }
-        function renderGroup(amount, containerId) {
-            const winners = rewardWinners.filter(w => w.amount === amount);
-            if (!winners.length) return;
-            const group = el("section", "group");
-            group.dataset.category = amount;
-            const head = el("header", "group-head");
-            head.append(el("h3", "", prizeLabel(amount)), el("small", "", winners.length + " kişi"));
-            group.append(head, el("p", "description", categoryDescriptions[amount]));
-            winners.forEach(w => group.append(renderWinner(w)));
-            document.getElementById(containerId).append(group);
-        }
-        rewardWinners.filter(w => w.amount === "5 Milyon" && w.bonus).forEach(w => document.getElementById("champion").append(renderWinner(w, true)));
-        ["4 Milyon", "2,5 Milyon", "1 Milyon"].forEach(a => renderGroup(a, "major-winners-list"));
-        ["500 Bin", "RP Ticket", "Top Quality Metal"].forEach(a => renderGroup(a, "participation-winners-list"));
-        const cashTotal = rewardWinners.reduce((sum,w) => sum + (amounts[w.amount] || 0), 0);
-        document.getElementById("totals").textContent = rewardWinners.length + " kazanan · " + money(cashTotal) + " para ödülü";
-        if (!rewardWinners.length) document.getElementById("champion").append(el("p", "empty", "Henüz çekiliş sonucu yayınlanmadı."));
+        const prizeIcons = {"3,5 Milyon":"fa-crown","2 Milyon":"fa-money-bill-wave","1,5 Milyon":"fa-money-bill-wave","1 Milyon":"fa-money-bill-wave","300 Bin":"fa-gift","RP Ticket":"fa-ticket","Top Quality Metal":"fa-layer-group"};
+        function el(tag,className,text) { const node=document.createElement(tag); node.className=className; if(text!==undefined) node.textContent=text; return node; }
+        function icon(name) { const node=el("i","fa-solid "+name); node.setAttribute("aria-hidden","true"); return node; }
+        function playerInfo(winner,champion) { const info=el("div","player"); if(champion) info.append(el("div","champion-label","HAFTANIN LİDERİ")); info.append(el("div","player-name",winner.name)); const meta=el("div","meta"); meta.append(el("span","","ID: "+winner.id),el("span","",winner.playtime+" Saat")); info.append(meta); return info; }
+        function prizeNode(winner) { const prize=el("div","prize"); if(!amounts[winner.amount]) prize.classList.add("item"); prize.append(icon(prizeIcons[winner.amount]||"fa-gift"),document.createTextNode(prizeLabel(winner.amount))); return prize; }
+        function renderWinner(winner,champion=false) { const card=el("article",champion?"champion-card":"winner-card"); card.dataset.playerId=winner.id; card.dataset.amount=winner.amount; if(champion){const crown=el("div","champion-crown"); crown.append(icon("fa-crown")); card.append(crown);} card.append(prizeNode(winner),playerInfo(winner,champion)); return card; }
+        function renderGroup(amount,containerId) { const winners=rewardWinners.filter(w=>w.amount===amount); if(!winners.length)return; const group=el("section","group"); group.dataset.category=amount; const head=el("header","group-head"); head.append(el("h3","",prizeLabel(amount)),el("small","",winners.length+" kişi")); group.append(head,el("p","description",categoryDescriptions[amount])); winners.forEach(w=>group.append(renderWinner(w))); document.getElementById(containerId).append(group); }
+        rewardWinners.filter(w=>w.amount==="3,5 Milyon"&&w.bonus).forEach(w=>document.getElementById("champion").append(renderWinner(w,true)));
+        ["2 Milyon","1,5 Milyon","1 Milyon"].forEach(a=>renderGroup(a,"major-winners-list"));
+        ["300 Bin","RP Ticket","Top Quality Metal"].forEach(a=>renderGroup(a,"participation-winners-list"));
+        const cashTotal=rewardWinners.reduce((sum,w)=>sum+(amounts[w.amount]||0),0);
+        document.getElementById("totals").textContent=rewardWinners.length+" kazanan · "+money(cashTotal)+" toplam para ödülü";
+        if(!rewardWinners.length) document.getElementById("champion").append(el("p","empty","Henüz çekiliş sonucu yayınlanmadı."));
     </script>
 </body>
 </html>
