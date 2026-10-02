@@ -356,36 +356,35 @@
     </main>
 
     <footer>
-        <div class="shell"><span>DNZY Ailesi · Haftalık ödül sonuçları</span><span>Son güncelleme: <strong id="last-updated-text">28.09.2026 18:21</strong></span></div>
+        <div class="shell"><span>DNZY Ailesi · Haftalık ödül sonuçları</span><span>Son güncelleme: <strong id="last-updated-text">02.10.2026 09:50</strong></span></div>
     </footer>
 
-    <span id="last-updated-topbar" hidden>28.09.2026 18:21</span>
+    <span id="last-updated-topbar" hidden>02.10.2026 09:50</span>
     <script>
         const rewardWinners = [
-  { id: "566105", name: "DELI GURDAL", amount: "3,5 Milyon", playtime: "148.46", bonus: true },
-  { id: "546618", name: "UUR DOGAN", amount: "2 Milyon", playtime: "113.51" },
-  { id: "541281", name: "ARES HILL", amount: "2 Milyon", playtime: "105.03" },
-  { id: "573941", name: "ZIPKIN AHMET", amount: "2 Milyon", playtime: "103.33" },
-  { id: "444626", name: "REBORT MIKAELSON", amount: "1,5 Milyon", playtime: "125.47" },
-  { id: "512826", name: "NURCAN FOXX", amount: "1,5 Milyon", playtime: "116.48" },
-  { id: "551549", name: "UFK DGN", amount: "1,5 Milyon", playtime: "99.48" },
-  { id: "565995", name: "BURAK FOX", amount: "1 Milyon", playtime: "91.01" },
-  { id: "559923", name: "BARONES SUPERB", amount: "1 Milyon", playtime: "77.04" },
-  { id: "452322", name: "WHITE PHANTOM", amount: "1 Milyon", playtime: "62.22" },
-  { id: "294322", name: "KUTAY ADIYAMAN", amount: "1 Milyon", playtime: "58.05" },
-  { id: "353371", name: "BEDIRHAN LYNX", amount: "1 Milyon", playtime: "44.08" },
-  { id: "488535", name: "SERDAR SARSILMAZ", amount: "300 Bin", playtime: "78.37" },
-  { id: "551949", name: "ACE RYDERS", amount: "300 Bin", playtime: "53.02" },
-  { id: "541429", name: "JEYS KENNEDY", amount: "300 Bin", playtime: "34.52" },
-  { id: "572985", name: "SAMET HILL", amount: "300 Bin", playtime: "33.51" },
-  { id: "105998", name: "ONUR GUNAY", amount: "300 Bin", playtime: "32.54" },
-  { id: "288021", name: "ISMAILSALIH YILDIZ", amount: "300 Bin", playtime: "30.42" },
-  { id: "577620", name: "None", amount: "300 Bin", playtime: "29.15" },
-  { id: "552554", name: "MERT KENNEDY", amount: "300 Bin", playtime: "29.11" },
-  { id: "569017", name: "EWOLIS VEGAS", amount: "RP Ticket", playtime: "24.53" },
-  { id: "559331", name: "CRYZA YADZ", amount: "RP Ticket", playtime: "23.01" },
-  { id: "538516", name: "HAMZA KINGSLEY", amount: "RP Ticket", playtime: "22.24" },
-  { id: "565195", name: "ARDA VEGAS", amount: "Top Quality Metal", playtime: "19.13" },
+  { id: "444626", name: "REBORT MIKAELSON", amount: "3,5 Milyon", playtime: "137.38", bonus: true },
+  { id: "512826", name: "NURCAN HILL", amount: "2 Milyon", playtime: "109.31" },
+  { id: "546618", name: "UUR DOGAN", amount: "1,5 Milyon", playtime: "95.18" },
+  { id: "452322", name: "WHITE PHANTOM", amount: "1,5 Milyon", playtime: "90.58" },
+  { id: "559923", name: "BARONES SUPERB", amount: "1,5 Milyon", playtime: "80.34" },
+  { id: "294322", name: "KUTAY ADIYAMAN", amount: "1 Milyon", playtime: "73.09" },
+  { id: "353371", name: "BEDIRHAN LYNX", amount: "1 Milyon", playtime: "64.58" },
+  { id: "566105", name: "DELI GURDAL", amount: "1 Milyon", playtime: "52.05" },
+  { id: "571715", name: "GENERAL SAW", amount: "1 Milyon", playtime: "44.52" },
+  { id: "541281", name: "ARES HILL", amount: "1 Milyon", playtime: "41.48" },
+  { id: "488535", name: "SERDAR SARSILMAZ", amount: "300 Bin", playtime: "59.03" },
+  { id: "565995", name: "BURAK FOX", amount: "300 Bin", playtime: "55.19" },
+  { id: "288021", name: "ISMAILSALIH YILDIZ", amount: "300 Bin", playtime: "48.17" },
+  { id: "511285", name: "ROCCO FOX", amount: "300 Bin", playtime: "40.14" },
+  { id: "521219", name: "DAPOLYON KAPLAN", amount: "300 Bin", playtime: "38.34" },
+  { id: "552554", name: "MERT HILL", amount: "300 Bin", playtime: "34.3" },
+  { id: "105998", name: "ONUR GUNAY", amount: "300 Bin", playtime: "31.27" },
+  { id: "569017", name: "EWOLIS VEGAS", amount: "300 Bin", playtime: "28.34" },
+  { id: "533319", name: "CATO JORDAN", amount: "300 Bin", playtime: "26.07" },
+  { id: "541429", name: "JEYS KENNEDY", amount: "300 Bin", playtime: "25.31" },
+  { id: "572985", name: "SAMET HILL", amount: "RP Ticket", playtime: "21.5" },
+  { id: "573941", name: "ZIPKIN AHMET", amount: "Top Quality Metal", playtime: "17.29" },
+  { id: "539525", name: "TUNA SLOXY", amount: "Top Quality Metal", playtime: "15.35" },
 ];
         const categoryDescriptions = {"3,5 Milyon": "En cok saat yapan 1 kisi", "2 Milyon": "100+ saat | 3 kisi", "1,5 Milyon": "50+ saat | 3 kisi", "1 Milyon": "35+ saat | 5 kisi", "300 Bin": "25+ saat | Odul almayan herkes", "RP Ticket": "20+ saat | 3 kisi | Manuel teslim", "Top Quality Metal": "15+ saat | 3 kisi | Manuel teslim"};
         const amounts = {"3,5 Milyon": 3500000, "2 Milyon": 2000000, "1,5 Milyon": 1500000, "1 Milyon": 1000000, "300 Bin": 300000};
